@@ -22,3 +22,4 @@ app.get("/servicios", (req, res) => res.sendFile(path.join(__dirname, 'pages', '
 app.get("/horarios", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'horarios.html')));
 app.get("/informacion", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'informacion.html')));
 app.get("/sistemas", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'sistemas.html')));
+app.get("/proyectos", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'proyectos.html')));
