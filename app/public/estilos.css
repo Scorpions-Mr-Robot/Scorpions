@@ -222,9 +222,6 @@ body {
     animation: rotate 30s linear infinite;
 }
 
-.ocultar {
-    display: none;
-}
 
 @keyframes rotate{
     0%{
