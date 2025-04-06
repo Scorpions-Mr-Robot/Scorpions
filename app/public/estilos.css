@@ -180,9 +180,7 @@ body {
     color: #9eff02;
 } 
 
-.ocultar {
-    display: none;
-}
+
 
 /* Botones informativos */
 .btn-vision, .btn-mision, .btn-valores {
@@ -222,6 +220,10 @@ body {
     height: 250px;
     transform-style: preserve-3d;
     animation: rotate 30s linear infinite;
+}
+
+.ocultar {
+    display: none;
 }
 
 @keyframes rotate{
