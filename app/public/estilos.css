@@ -134,56 +134,93 @@ body {
     color:#ffffff
 }
 
-.concepto {
-    padding: 50px 0;
+
+/* Contenedor principal */
+.container-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* Secciones */
+section {
+    padding: 40px;
+}
+
+/* Contenedor de secciones en horizontal */
+.container-info {
     display: flex;
-    flex-wrap: wrap; /* Permite que las secciones se ajusten si no hay espacio */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: stretch; /* Hace que todas las cajas tengan la misma altura */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Imágenes de fondo en secciones */
+.img-fondo1, .img-fondo2, .img-fondo3, .img-fondo4 {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    gap: 50px;
+    color: white;
+    padding: 10px;
     width: 100%;
-    max-width: 1200px; /* Limita el ancho máximo para que no se vea muy extendido */
-    margin: auto; /* Centra el contenedor */
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-.vision, .mision, .valores {
-    color: #ff0011;
-    font-size: 28px;
+.img-fondo1::before, .img-fondo2::before, .img-fondo3::before, .img-fondo4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjetas informativas */
+.info {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    text-align: center;
     width: 30%;
-    min-width: 300px; /* Evita que las columnas sean demasiado pequeñas */
-    max-width: 400px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1); /* Agrega un fondo sutil */
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Asegura que el contenido esté centrado */
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.637); /* Sombra elegante */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
 }
 
-.vision h3, .mision h3, .valores h3 {
-    color: #fffb00;
-    font-size: 22px;
+.info:hover {
+    transform: scale(1.02);
+}
+
+/* Botones informativos */
+.btn-vision, .btn-mision, .btn-valores {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 30px;
     font-weight: bold;
+    border: 2px solid black;
+    transition: all 0.3s ease-in-out;
 }
 
-.vision p, .mision p, .valores p {
-    text-align: left;
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 1.6; /* Mejora la legibilidad */
-}
-
-
-.vision b, .mision b, .valores b{
-    color: #9eff02;
-} 
-
-.vision:hover, .mision:hover, .valores:hover {
+.btn-vision:hover, .btn-mision:hover, .btn-valores:hover {
+    background: greenyellow;
     transform: scale(1.05); /* Agranda ligeramente */
     transition: transform 0.3s ease-in-out;
 }
+
+
 
 .contenedor {
     display: flex;
