@@ -94,24 +94,51 @@
 
     <!--footer o pie de pagina con sus redirecciones-->
 
-    <footer class="footer container">
-      <h3>Scorpions</h3>
-      <div class="links">
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="informacion">Información</a></li>
-          <li><a href="contacto">Contacto</a></li>
-          <li>
-            <div class="links"> 
-                <a href="https://github.com/Scorpions-Mr-Robot" target="_blank "><i class="fa-brands fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <script src="/js/script.js"></script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos una empresa comprometida con la calidad y el servicio al cliente, ofreciendo soluciones innovadoras para el mundo digital.</p>
             </div>
-          </li>
-        </ul>
-      </div>
+            <div class="footer-section links">
+                <h2>Enlaces Rápidos</h2>
+                <ul>
+                    <li><a href="/templates/index.html">Inicio</a></li>
+                    <li><a href="/html/servicios.html">Servicios</a></li>
+                    <li><a href="/html/proyectos.html">Proyectos</a></li>
+                    <li><a href="/html/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contacto</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Ciudad, Perú</p>
+                <p><i class="fas fa-envelope"></i> scorpions@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +51 947 236 723</p>
+            </div>
+            <div class="footer-section social">
+                <h2>Síguenos</h2>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Scorpions. Todos los derechos reservados.</p>
+        </div>
     </footer>
+    <!-- Inline JavaScript -->
+<script>
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.nav-container');
+        if (window.scrollY > 0) {
+            nav.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)'; // Sombra más intensa al hacer scroll
+        } else {
+            nav.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)'; // Sombra original
+        }
+    });
+</script>
   </body>
 </html>
