@@ -180,6 +180,24 @@ body {
     color: #9eff02;
 } 
 
+/* Botones informativos */
+.btn-vision, .btn-mision, .btn-valores {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    border: 2px solid black;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-vision:hover, .btn-mision:hover, .btn-valores:hover {
+    background: greenyellow;
+}
+
+
 .vision:hover, .mision:hover, .valores:hover {
     transform: scale(1.05); /* Agranda ligeramente */
     transition: transform 0.3s ease-in-out;
