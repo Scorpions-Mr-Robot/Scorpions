@@ -6,7 +6,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // server
 const app = express();
-app.set("port", 4000);
+const port = process.env.PORT || 4000;
+app.set("port", port);
 app.listen(app.get("port"));
 console.log("servidor corriendo en el puerto", app.get("port"));
 
