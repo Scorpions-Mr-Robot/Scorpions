@@ -180,6 +180,10 @@ body {
     color: #9eff02;
 } 
 
+.ocultar {
+    display: none;
+}
+
 /* Botones informativos */
 .btn-vision, .btn-mision, .btn-valores {
     display: inline-block;
