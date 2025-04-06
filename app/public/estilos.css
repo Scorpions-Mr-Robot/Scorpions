@@ -313,22 +313,6 @@ body {
     color: #bbb;
 }
 
-.links ul{
-    display: flex;
-}
-
-.links ul li {
-    margin-right: 35px;
-}
-
-.links ul li a{
-    color: #000000;
-}
-
-.links ul li a:hover {
-    color: #E1160D;
-}
-
 
 
 @media(max-width:991px) {
