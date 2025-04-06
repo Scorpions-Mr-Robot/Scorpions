@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mision</title>
+        <link rel="icon" href="imagenes/logo_cabecera.png"/>
+        <link rel="stylesheet" href="mision.css">
+        <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+<body>
+    
+    <header class="header">
+        <div class="menu container">
+            <a href="" class="logo"><img src="../imagenes/logo_Sin_fondo.png" alt=""></a>
+            <input type="checkbox" id="menu" />
+            <label for="menu"
+              ><i class='bx bx-menu'></i></label>
+            <!--links de redirecciones a las paginas-->
+            <nav class="navbar">
+              <ul>
+
+                <!--es un scrip para detectar si la pagina esta en 
+                modo responsive y cambia el icono por inicio-->
+
+                <li class="menu-item">
+                  <a href="/" id="menuLink">
+                    <i class="fa-solid fa-house"></i> <!-- Ícono -->
+                  </a>
+                </li>
+                
+                <script>
+                  function updateMenu() {
+                    let menuLink = document.getElementById("menuLink");
+                    if (window.innerWidth <= 768) { // Si el ancho de la pantalla es menor o igual a 768px
+                      menuLink.innerHTML = "Inicio"; // Cambia el contenido a "Inicio"
+                    } else {
+                      menuLink.innerHTML = '<i class="fa-solid fa-house"></i>'; // Vuelve a mostrar el ícono
+                    }
+                  }
+                
+                  // Ejecutar la función cuando se cargue la página y al cambiar el tamaño de la ventana
+                  window.onload = updateMenu;
+                  window.onresize = updateMenu;
+                </script>
+                
+                <li><a href="horarios">Horario</a></li>
+                <li><a href="servicios">Servicios</a></li>
+              </ul>
+            </nav>
+          </div>
+    </header>
+
+</body>
+</html>
