@@ -23,3 +23,7 @@ app.get("/horarios", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'h
 app.get("/informacion", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'informacion.html')));
 app.get("/sistemas", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'sistemas.html')));
 app.get("/proyectos", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'proyectos.html')));
+app.get("/mision", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'mision.html')));
+app.get("/vision", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'vision.html')));
+app.get("/valores", (req, res) => res.sendFile(path.join(__dirname, 'pages', 'valores.html')));
+
