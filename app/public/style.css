@@ -14,7 +14,7 @@ body {
     align-items: center;
     min-height: 100vh;  /* Asegura que ocupe toda la pantalla */
     background: linear-gradient(rgba(100, 99, 99, 0.5), rgba(0, 0, 0, 0.1)), 
-                url(imagenes/sistemas-informacion-empresarial-2.jpg);
+                url(imagenes/sis.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
