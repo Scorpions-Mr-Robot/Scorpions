@@ -22,7 +22,7 @@ body {
 }
 
 .header{
-    background: url("/imagenes/l.jpg") no-repeat center center/cover;
+    background: url("/imagenes/ljpg") no-repeat center center/cover;
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
