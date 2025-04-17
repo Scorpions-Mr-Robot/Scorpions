@@ -17,12 +17,7 @@ document.getElementById('adminLoginForm').addEventListener('submit', async (e) =
         const data = await response.json();
 
         if (data.success) {
-            res.cookie('adminToken', token, {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                sameSite: 'strict',
-                maxAge: 24 * 60 * 60 * 1000 // 24 horas
-            });
+            document.cookie = `adminToken=${data.token}; HttpOnly; Secure=${process.env.NODE_ENV === 'production'}; SameSite=Strict; Max-Age=${24 * 60 * 60}`;
             window.location.href = '/admin/dashboard';
         } else {
             showError(data.message || 'Credenciales inválidas');
