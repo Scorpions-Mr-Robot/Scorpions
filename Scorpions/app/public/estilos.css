@@ -286,7 +286,7 @@ body.dark-mode .footer {
 
 .about-card p {
     font-size: 1.1em;
-    color: #ffffff;
+    color: #555;
 }
 
 .btn-about {
@@ -510,8 +510,10 @@ body.dark-mode .footer {
         padding: 10px;
         background-color: #fff;
         border-top: 1px solid #ddd;
-        position: relative;
-        bottom: 10px; /* Subir el campo de texto */
+        position: fixed; /* Cambiado a fixed para que esté siempre visible */
+        bottom: 60px; /* Subir el campo de texto */
+        width: 100%; /* Asegurar que ocupe todo el ancho */
+        z-index: 1000; /* Asegura que esté encima de otros elementos */
     }
 
     .chatbot-input input {
@@ -562,7 +564,7 @@ body.dark-mode .about-us {
 body.dark-mode .service-card,
 body.dark-mode .about-card {
     background-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.171);
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
 }
 
 body.dark-mode .footer {
