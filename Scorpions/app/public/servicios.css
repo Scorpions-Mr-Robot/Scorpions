@@ -575,3 +575,10 @@ body {
     }
 }
 
+/* Non-Responsive Styles */
+@media (min-width: 769px) {
+    .carrito-toggle {
+        display: none; /* Hide the toggle button when not in responsive mode */
+    }
+}
+

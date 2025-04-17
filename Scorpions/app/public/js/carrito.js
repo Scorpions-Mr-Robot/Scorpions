@@ -1,6 +1,7 @@
 // Variables globales
 let carrito = [];
 let total = 0;
+let boletaMostrada = false; // Flag to track if the receipt is already displayed
 
 // Función para agregar items al carrito
 function agregarAlCarrito(nombre, precio) {
@@ -232,6 +233,11 @@ function procesarPagoExitoso() {
 
 // Función para generar boleta
 async function generarBoleta() {
+    if (boletaMostrada) {
+        return; // Do not generate a new receipt if one is already displayed
+    }
+
+    boletaMostrada = true;
     const fecha = new Date().toLocaleDateString();
     const numeroBoleta = Math.floor(Math.random() * 1000000);
     
@@ -280,6 +286,9 @@ async function generarBoleta() {
             <button onclick="imprimirBoleta()" class="btn-imprimir">
                 <i class="fas fa-print"></i> Imprimir Boleta
             </button>
+            <button onclick="cerrarBoleta()" class="btn-cerrar-boleta">
+                <i class="fas fa-times"></i> Cerrar Boleta
+            </button>
         </div>
     `;
 
@@ -317,6 +326,15 @@ function imprimirBoleta() {
     `);
     ventanaImpresion.document.close();
     ventanaImpresion.print();
+}
+
+// Function to close the receipt
+function cerrarBoleta() {
+    const modal = document.querySelector('.modal');
+    if (modal) {
+        modal.remove();
+        boletaMostrada = false; // Reset the flag when the receipt is closed
+    }
 }
 
 // Inicializar el carrito cuando se carga la página
