@@ -3,139 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scorpions</title>
+    <title>Scorpions - Soluciones Informáticas</title>
     <link rel="stylesheet" href="estilos.css" />
-    <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" sizes="192x192" href="/imagenes/scorpio_icon.png">
   </head>
 
   <body>
-    <!--Menu de opciones con responsive-->
-
     <header class="header">
-      <div class="menu container">
-        <a href="/" class="logo"><img src="../imagenes/logo_Sin_fondo.png" alt=""></a>
+      <nav class="menu container">
+        <a href="/" class="logo">
+          <img src="../imagenes/logo_Sin_fondo.png" alt="Scorpions Logo">
+        </a>
         <input type="checkbox" id="menu" />
-        <label for="menu"
-          ><i class='bx bx-menu'></i></label>
-        <!--links de redirecciones a las paginas-->
-        <nav class="navbar">
-          <ul>
-            <li><a href="login"><i class="fa-solid fa-circle-user"></i></a></li>
-            <li><a href="servicios">Servicios</a></li>
-            <li><a href="horarios">Horario</a></li>
-            <li><a href="sistemas">Sistemas</a></li>
-          </ul>
-        </nav>
-      </div>
-      <!--contenido de header-->
-      <div class="header-content container">
+        <label for="menu"><i class='bx bx-menu'></i></label>
+        <ul class="navbar">
+          <li><a href="login"><i class="fa-solid fa-user"></i> Login</a></li>
+          <li><a href="servicios">Servicios</a></li>
+          <li><a href="horarios">Horario</a></li>
+          <li><a href="sistemas">Sistemas</a></li>
+        </ul>
+      </nav>
+      <section class="header-content container">
         <div class="header-info">
-          <h1>Scorpions</h1>
-          <p>Empresa Dedicada a la Informatica, Sistemas y Ciberseguridad</p>
-          <a href="contacto" class="btn-1">contactar</a>
+          <h1>Soluciones Informáticas y Ciberseguridad</h1>
+          <p>Protegemos tu negocio con soluciones innovadoras y seguras.</p>
+          <a href="contacto" class="btn-1">Contáctanos</a>
         </div>
-      </div>
+      </section>
     </header>
 
-    <!--vision, mision y valores de la empresa-->
+    <section class="services container">
+      <h2>Nuestros Servicios</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Ciberseguridad</h3>
+          <p>Protección integral contra amenazas cibernéticas.</p>
+          <a href="servicios" class="btn-service">Más información</a>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Desarrollo de Software</h3>
+          <p>Soluciones de software a medida para tu negocio.</p>
+          <a href="servicios" class="btn-service">Más información</a>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-cloud"></i>
+          <h3>Servicios en la Nube</h3>
+          <p>Migración y gestión de infraestructuras en la nube.</p>
+          <a href="servicios" class="btn-service">Más información</a>
+        </div>
+      </div>
+    </section>
 
-    <section class="concepto container">
-      <div class="vision">
-        <img src="imagenes/vicion.jpg" alt="Vision">
-        <h2><span>Vision</span></h2><br>
-        <a href="vision" class="btn-vision">Conócenos</a>
-      </div>
-      <div class="mision">
-        <img src="imagenes/mision.jpg" alt="Mision">
-        <h2><span>Mision</span></h2><br>
-        <a href="mision" class="btn-mision">Conócenos</a>
-      </div>
-      <div class="valores">
-        <img src="imagenes/valores.jpg" alt="Valores">
-        <h2><span>Valores</span></h2><br>
-        <a href="valores" class="btn-valores">Conócenos</a>
+    <section class="about-us container">
+      <h2>Acerca de Nosotros</h2>
+      <p>Somos una empresa líder en soluciones informáticas y ciberseguridad. Nos dedicamos a proteger y optimizar los sistemas de nuestros clientes con tecnología de vanguardia.</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="imagenes/vicion.jpg" alt="Visión">
+          <h3>Visión</h3>
+          <p>Ser líderes en innovación y seguridad informática.</p>
+          <a href="vision" class="btn-about">Conócenos</a>
+        </div>
+        <div class="about-card">
+          <img src="imagenes/mision.jpg" alt="Misión">
+          <h3>Misión</h3>
+          <p>Proteger y optimizar los sistemas de nuestros clientes.</p>
+          <a href="mision" class="btn-about">Conócenos</a>
+        </div>
+        <div class="about-card">
+          <img src="imagenes/valores.jpg" alt="Valores">
+          <h3>Valores</h3>
+          <p>Compromiso, integridad, innovación y seguridad.</p>
+          <a href="valores" class="btn-about">Conócenos</a>
+        </div>
       </div>
     </section>
 
-    <!--Galeria de imagenes-->
-    
-    <section class="contenedor">
-      <div class="slider">
-        <span style="--i: 1"><img src="../imagenes/icono.jpg" alt="" /></span>
-        <span style="--i: 2"
-          ><img
-            src="imagenes/stock-photo-search-bar-with-www-text-web-site-url-digital-marketing-business-internet-and-technology-concept.jpeg"
-            alt=""
-        /></span>
-        <span style="--i: 3"
-          ><img src="imagenes/sistemas-informacion-empresarial-4.jpg" alt=""
-        /></span>
-        <span style="--i: 4"
-          ><img src="../imagenes/sistemas-informacion-empresarial-2.jpg" alt=""
-        /></span>
-        <span style="--i: 5"
-          ><img src="../imagenes/sistemas-informacion-empresarial-15.jpg" alt=""
-        /></span>
-        <span style="--i: 6"
-          ><img src="../imagenes/sistemas-informacion-empresarial-10.jpg" alt=""
-        /></span>
-        <span style="--i: 7"
-          ><img src="../imagenes/codigo-programa-computadora_1385-635.png" alt=""
-        /></span>
-        <span style="--i: 8"
-          ><img
-            src="../imagenes/concepto-control-calidad-estandar-m_23-2150041859.jpg"
-            alt=""
-        /></span>
+    <section class="portfolio container">
+      <h2>Nuestro Portafolio</h2>
+      <div class="portfolio-slider">
+        <div class="slide"><img src="../imagenes/icono.jpg" alt="Project 1"></div>
+        <div class="slide"><img src="imagenes/stock-photo-search-bar-with-www-text-web-site-url-digital-marketing-business-internet-and-technology-concept.jpeg" alt="Project 2"></div>
+        <div class="slide"><img src="imagenes/sistemas-informacion-empresarial-4.jpg" alt="Project 3"></div>
+        <div class="slide"><img src="../imagenes/sistemas-informacion-empresarial-2.jpg" alt="Project 4"></div>
+        <div class="slide"><img src="../imagenes/sistemas-informacion-empresarial-15.jpg" alt="Project 5"></div>
+        <div class="slide"><img src="../imagenes/sistemas-informacion-empresarial-10.jpg" alt="Project 6"></div>
+        <div class="slide"><img src="../imagenes/codigo-programa-computadora_1385-635.png" alt="Project 7"></div>
+        <div class="slide"><img src="../imagenes/concepto-control-calidad-estandar-m_23-2150041859.jpg" alt="Project 8"></div>
       </div>
     </section>
-     
-    <!--footer o pie de pagina con sus redirecciones-->
-
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section about">
-                <h2>Sobre Nosotros</h2>
-                <p>Somos una empresa comprometida con la calidad y el servicio al cliente, ofreciendo soluciones innovadoras para el mundo digital.</p>
-            </div>
-            <div class="footer-section links">
-                <h2>Enlaces Rápidos</h2>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="servicios">Servicios</a></li>
-                    <li><a href="proyectos">Proyectos</a></li>
-                    <li><a href="contacto">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h2>Contacto</h2>
-                <p><i class="fas fa-map-marker-alt"></i> Ciudad, Perú</p>
-                <p><i class="fas fa-envelope"></i> scorpions@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +51 955 294 117</p>
-            </div>
-            <div class="footer-section social">
-                <h2>Síguenos</h2>
-                <a href="https://github.com/Scorpions-Mr-Robot"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h2>Sobre Nosotros</h2>
+          <p>Somos una empresa comprometida con la calidad y el servicio al cliente, ofreciendo soluciones innovadoras para el mundo digital.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Scorpions. Todos los derechos reservados.</p>
+        <div class="footer-section links">
+          <h2>Enlaces Rápidos</h2>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="servicios">Servicios</a></li>
+            <li><a href="proyectos">Proyectos</a></li>
+            <li><a href="contacto">Contacto</a></li>
+          </ul>
         </div>
+        <div class="footer-section contact">
+          <h2>Contacto</h2>
+          <p><i class="fas fa-map-marker-alt"></i> Ciudad, Perú</p>
+          <p><i class="fas fa-envelope"></i> scorpions@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +51 955 294 117</p>
+        </div>
+        <div class="footer-section social">
+          <h2>Síguenos</h2>
+          <a href="https://github.com/Scorpions-Mr-Robot"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Scorpions. Todos los derechos reservados.</p>
+      </div>
     </footer>
 
     <button 
-        onclick="window.location.href='/admin/login.html'" 
-        style="position: fixed; bottom: 0; right: 0; opacity: 0; cursor: default;">
-        Admin
+      onclick="window.location.href='/admin/login.html'" 
+      style="position: fixed; bottom: 0; right: 0; opacity: 0; cursor: default;">
+      Admin
     </button>
- 
-</script>
   </body>
 </html>
