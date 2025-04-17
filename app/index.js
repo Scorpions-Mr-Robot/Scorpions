@@ -7,6 +7,24 @@ require('dotenv').config();
 
 const app = express();
 
+// Verificar dependencias requeridas
+const requiredDeps = ['express', 'jsonwebtoken', 'bcryptjs', 'cookie-parser', 'dotenv'];
+try {
+    requiredDeps.forEach(dep => require.resolve(dep));
+} catch (err) {
+    console.error(`Error: Falta la dependencia ${err.requireStack}`);
+    process.exit(1);
+}
+
+// Verificar variables de entorno requeridas
+const requiredEnvVars = ['JWT_SECRET', 'ADMIN_USER', 'ADMIN_PASS'];
+requiredEnvVars.forEach(envVar => {
+    if (!process.env[envVar]) {
+        console.error(`Error: Falta la variable de entorno ${envVar}`);
+        process.exit(1);
+    }
+});
+
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
@@ -122,5 +140,6 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
 }).on('error', (err) => {
     console.error('Error al iniciar el servidor:', err);
+    process.exit(1);
 });
 
