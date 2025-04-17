@@ -585,7 +585,11 @@ body.dark-mode .about-us {
 body.dark-mode .service-card,
 body.dark-mode .about-card {
     background-color: #444; 
-    box-shadow: 0 4px 8px rgb(255, 255, 255); 
+    box-shadow: 0 4px 8px rgb(49, 49, 49); 
+}
+
+body.dark-mode .service-card p{
+    color: #ffffff;
 }
 
 body.dark-mode .footer {
