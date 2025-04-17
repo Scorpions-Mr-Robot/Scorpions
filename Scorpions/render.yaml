@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: scorpions-app
+    name: scorpions
     env: node
     buildCommand: npm install
     startCommand: npm start
