@@ -98,6 +98,66 @@ body {
     cursor: pointer;
 }
 
+.servicios {
+  margin: 20px;
+}
+
+.servicios ul {
+  list-style: none;
+  padding: 0;
+}
+
+.servicios li {
+  margin: 10px 0;
+}
+
+.servicios button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.servicios button:hover {
+  background-color: #0056b3;
+}
+
+.carrito {
+  margin: 20px;
+  border-top: 2px solid #ccc;
+  padding-top: 20px;
+}
+
+.carrito ul {
+  list-style: none;
+  padding: 0;
+}
+
+.carrito li {
+  margin: 10px 0;
+}
+
+.carrito button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carrito button:hover {
+  background-color: #a71d2a;
+}
+
+#total {
+  font-weight: bold;
+  margin-top: 20px;
+}
 
 @media(max-width:991px) {
 

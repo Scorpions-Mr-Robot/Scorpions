@@ -52,5 +52,32 @@
           </div>
     </header>
 
+    <main>
+        <section class="servicios">
+            <h1>Servicios</h1>
+            <ul id="servicios-list">
+                <li>
+                    <span>Servicio 1 - $100</span>
+                    <button onclick="agregarAlCarrito('Servicio 1', 100)">Agregar al carrito</button>
+                </li>
+                <li>
+                    <span>Servicio 2 - $200</span>
+                    <button onclick="agregarAlCarrito('Servicio 2', 200)">Agregar al carrito</button>
+                </li>
+                <li>
+                    <span>Servicio 3 - $300</span>
+                    <button onclick="agregarAlCarrito('Servicio 3', 300)">Agregar al carrito</button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="carrito-list"></ul>
+            <p id="total">Total: $0</p>
+        </section>
+    </main>
+
+    <script src="carrito.js"></script>
 </body>
 </html>
