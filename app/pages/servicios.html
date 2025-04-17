@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Servicios</title>
+        <title>Servicios - Scorpions</title>
         <link rel="icon" href="imagenes/logo_cabecera.png"/>
         <link rel="stylesheet" href="servicios.css">
         <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
@@ -54,32 +54,51 @@
 
     <main>
         <section class="servicios">
-            <h1>Servicios</h1>
-            <ul id="servicios-list">
-                <li>
-                    <span>Servicio 1 - $100</span>
-                    <button onclick="agregarAlCarrito('Servicio 1', 100)">Agregar al carrito</button>
-                </li>
-                <li>
-                    <span>Servicio 2 - $200</span>
-                    <button onclick="agregarAlCarrito('Servicio 2', 200)">Agregar al carrito</button>
-                </li>
-                <li>
-                    <span>Servicio 3 - $300</span>
-                    <button onclick="agregarAlCarrito('Servicio 3', 300)">Agregar al carrito</button>
-                </li>
-            </ul>
+            <h1>Nuestros Servicios</h1>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <h3>Consultoría en Ciberseguridad</h3>
+                    <p>Evaluación completa de la seguridad de su sistema</p>
+                    <div class="precio">$100</div>
+                    <button onclick="agregarAlCarrito('Consultoría en Ciberseguridad', 100)" class="btn-agregar">
+                        <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="servicio-card">
+                    <h3>Desarrollo de Software</h3>
+                    <p>Soluciones personalizadas para su empresa</p>
+                    <div class="precio">$200</div>
+                    <button onclick="agregarAlCarrito('Desarrollo de Software', 200)" class="btn-agregar">
+                        <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="servicio-card">
+                    <h3>Mantenimiento de Sistemas</h3>
+                    <p>Servicio técnico y actualizaciones</p>
+                    <div class="precio">$300</div>
+                    <button onclick="agregarAlCarrito('Mantenimiento de Sistemas', 300)" class="btn-agregar">
+                        <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    </button>
+                </div>
+            </div>
         </section>
 
         <section class="carrito">
-            <h2>Carrito de Compras</h2>
-            <ul id="carrito-list"></ul>
+            <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
+            <div class="carrito-items" id="carrito-list"></div>
             <p id="total">Total: $0</p>
             <div class="opciones-pago">
-                <h3>Opciones de Pago</h3>
-                <button onclick="pagarConTarjeta()" class="btn-pago">Pagar con Tarjeta</button>
-                <button onclick="pagarConYape()" class="btn-pago">Pagar con Yape</button>
-                <button onclick="pagarConPlin()" class="btn-pago">Pagar con Plin</button>
+                <button onclick="pagarConTarjeta()" class="btn-pago tarjeta">
+                    <i class="fas fa-credit-card"></i> Tarjeta
+                </button>
+                <button onclick="pagarConYape()" class="btn-pago yape">
+                    <i class="fas fa-mobile-alt"></i> Yape
+                </button>
+                <button onclick="pagarConPlin()" class="btn-pago plin">
+                    <i class="fas fa-qrcode"></i> Plin
+                </button>
             </div>
         </section>
     </main>
