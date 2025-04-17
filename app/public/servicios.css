@@ -173,6 +173,28 @@ body {
   background-color: #218838;
 }
 
+.opciones-pago {
+  margin-top: 20px;
+}
+
+.opciones-pago h3 {
+  margin-bottom: 10px;
+}
+
+.btn-pago {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-pago:hover {
+  background-color: #0056b3;
+}
+
 @media(max-width:991px) {
 
     .menu {
