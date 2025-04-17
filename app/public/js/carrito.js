@@ -1,18 +1,28 @@
+// Variables globales
 let carrito = [];
 let total = 0;
 
+// Función para agregar items al carrito
 function agregarAlCarrito(nombre, precio) {
+    console.log('Agregando al carrito:', nombre, precio); // Debug
     carrito.push({ nombre, precio });
     total += precio;
     actualizarCarrito();
     mostrarNotificacion(`${nombre} agregado al carrito`);
 }
 
+// Función para actualizar la visualización del carrito
 function actualizarCarrito() {
     const carritoList = document.getElementById('carrito-list');
     const totalElement = document.getElementById('total');
     
+    if (!carritoList || !totalElement) {
+        console.error('Elementos del carrito no encontrados');
+        return;
+    }
+
     carritoList.innerHTML = '';
+    
     carrito.forEach((item, index) => {
         const div = document.createElement('div');
         div.className = 'carrito-item';
@@ -31,38 +41,31 @@ function actualizarCarrito() {
     totalElement.textContent = `Total: $${total}`;
 }
 
+// Función para eliminar items del carrito
 function eliminarDelCarrito(index) {
-    total -= carrito[index].precio;
-    carrito.splice(index, 1);
-    actualizarCarrito();
+    if (index >= 0 && index < carrito.length) {
+        total -= carrito[index].precio;
+        carrito.splice(index, 1);
+        actualizarCarrito();
+    }
 }
 
+// Función para mostrar notificaciones
 function mostrarNotificacion(mensaje) {
     const notificacion = document.createElement('div');
     notificacion.className = 'notificacion';
     notificacion.textContent = mensaje;
     document.body.appendChild(notificacion);
 
+    // Remover la notificación después de 3 segundos
     setTimeout(() => {
         notificacion.remove();
     }, 3000);
 }
 
-function procesarPago(metodoPago) {
-    if (carrito.length === 0) {
-        alert('El carrito está vacío');
-        return;
-    }
-
-    // Aquí iría la lógica de integración con el sistema de pago real
-    alert(`Procesando pago con ${metodoPago}. Total: $${total}`);
-    carrito = [];
-    total = 0;
-    actualizarCarrito();
-}
-
+// Funciones de pago
 function pagarConTarjeta() {
-    procesarPago('tarjeta');
+    procesarPago('Tarjeta');
 }
 
 function pagarConYape() {
@@ -72,3 +75,22 @@ function pagarConYape() {
 function pagarConPlin() {
     procesarPago('Plin');
 }
+
+function procesarPago(metodoPago) {
+    if (carrito.length === 0) {
+        alert('El carrito está vacío');
+        return;
+    }
+
+    alert(`Procesando pago con ${metodoPago}\nTotal: $${total}`);
+    // Aquí iría la integración con el sistema de pago real
+    carrito = [];
+    total = 0;
+    actualizarCarrito();
+}
+
+// Inicializar el carrito cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Carrito inicializado'); // Debug
+    actualizarCarrito();
+});
