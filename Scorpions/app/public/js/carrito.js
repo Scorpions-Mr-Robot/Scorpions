@@ -284,6 +284,14 @@ function generarBoleta() {
   document.body.appendChild(modal);
 }
 
+function cerrarBoleta() {
+  const boletaContainer = document.querySelector('.boleta-container');
+  if (boletaContainer) {
+    boletaContainer.remove();
+    boletaMostrada = false;
+  }
+}
+
 // Función para imprimir boleta
 function imprimirBoleta() {
     const contenidoBoleta = document.querySelector('.boleta').innerHTML;
@@ -316,11 +324,11 @@ function imprimirBoleta() {
 
 // Function to close the receipt
 function cerrarBoleta() {
-    const modal = document.querySelector('.modal');
-    if (modal) {
-        modal.remove();
-        boletaMostrada = false; // Reset the flag when the receipt is closed
-    }
+  const boletaContainer = document.querySelector('.boleta-container');
+  if (boletaContainer) {
+    boletaContainer.remove();
+    boletaMostrada = false; // Reset the flag when the receipt is closed
+  }
 }
 
 // Inicializar el carrito cuando se carga la página

@@ -26,165 +26,93 @@
       .chatbot-header {
         background-color: #34495e;
         color: white;
-        padding: 12px; /* Reduced padding */
+        padding: 12px;
         text-align: center;
         cursor: pointer;
         font-weight: 500;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      .chatbot-header i {
-        font-size: 1em; /* Reduced size */
-        transition: transform 0.3s ease;
+      .chatbot-body {
+        display: none;
+        flex-direction: column;
+        height: 400px;
       }
 
-      .chatbot-header.closed i {
-        transform: rotate(180deg);
+      .chatbot-container.open .chatbot-body {
+        display: flex;
       }
 
       .chatbot-messages {
-        padding: 12px; /* Reduced padding */
-        height: 200px; /* Reduced height */
+        flex: 1;
+        padding: 12px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
       }
 
       .chatbot-input {
-        padding: 12px; /* Reduced padding */
-        border-top: 1px solid #ddd;
         display: flex;
+        padding: 10px;
+        border-top: 1px solid #ddd;
         background-color: #fff;
       }
 
       .chatbot-input input {
         flex: 1;
-        padding: 8px; /* Reduced padding */
+        padding: 10px;
         border: 1px solid #ddd;
         border-radius: 6px;
         outline: none;
-        font-size: 0.9em; /* Reduced size */
-        color: #333;
+        font-size: 1em;
       }
 
       .chatbot-input button {
         background-color: #3498db;
         color: white;
         border: none;
-        padding: 8px 12px; /* Reduced padding */
+        padding: 10px 15px;
         border-radius: 6px;
         cursor: pointer;
         margin-left: 8px;
         font-weight: bold;
-        transition: background-color 0.3s ease;
       }
 
-      .chatbot-input button:hover {
-        background-color: #2980b9;
-      }
-
-      .chatbot-message {
-        margin-bottom: 8px; /* Reduced margin */
-        padding: 8px; /* Reduced padding */
-        border-radius: 8px;
-        line-height: 1.3;
-        font-size: 0.9em; /* Reduced size */
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-      }
-
-      .chatbot-message.user {
-        background-color: #e2f0ff;
-        text-align: right;
-        color: #2c3e50;
-        align-self: flex-end;
-      }
-
-      .chatbot-message.bot {
-        background-color: #f0f0f0;
-        color: #2c3e50;
-        align-self: flex-start;
-      }
-
-      /* Responsive Styles */
       @media (max-width: 768px) {
         .chatbot-container {
-          width: 40px; /* Further reduced size */
-          height: 40px; /* Further reduced size */
-          border-radius: 50%;
-          bottom: 10px; /* Adjusted position */
-          right: 10px; /* Adjusted position */
-          overflow: hidden;
-          transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
-        }
-
-        .chatbot-container.open {
-          width: 250px; /* Reduced width */
-          height: 300px; /* Reduced height */
-          border-radius: 12px;
-        }
-
-        .chatbot-header {
-          border-radius: 50%;
-          padding: 8px; /* Reduced padding */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .chatbot-header span {
-          display: none;
-        }
-
-        .chatbot-messages {
-          display: none;
-          padding: 8px; /* Reduced padding */
-        }
-
-        .chatbot-input {
-          display: none;
-          padding: 8px; /* Reduced padding */
-        }
-
-        .chatbot-container.open .chatbot-header {
+          width: 100%;
+          bottom: 0;
+          right: 0;
           border-radius: 0;
         }
 
-        .chatbot-container.open .chatbot-header span {
-          display: inline;
-          font-size: 0.9em; /* Reduced size */
-        }
-
-        .chatbot-container.open .chatbot-messages {
-          display: flex;
-        }
-
-        .chatbot-container.open .chatbot-input {
-          display: flex;
+        .chatbot-body {
+          height: 300px;
         }
       }
 
-      .chatbot-options {
+      .boleta-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
         display: flex;
-        flex-direction: column;
-        padding: 8px; /* Reduced padding */
+        justify-content: center;
+        align-items: center;
+        z-index: 1002;
       }
 
-      .chatbot-option {
-        background-color: #f0f0f0;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        padding: 6px 10px; /* Reduced padding */
-        margin-bottom: 4px; /* Reduced margin */
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-size: 0.85em; /* Reduced size */
-      }
-
-      .chatbot-option:hover {
-        background-color: #e0e0e0;
+      .boleta {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
     </style>
   </head>
@@ -320,15 +248,18 @@
       Admin
     </button>
 
-    <!-- Chatbot -->
     <div class="chatbot-container">
       <div class="chatbot-header" onclick="toggleChatbot()">
         <span>Asistente Virtual</span>
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="chatbot-body">
-        <div class="chatbot-messages" id="chatbotMessages"></div>
-        <div class="chatbot-options" id="chatbotOptions"></div>
+        <div class="chatbot-messages" id="chatbotMessages">
+          <!-- Mensajes del asistente -->
+        </div>
+        <div class="chatbot-options" id="chatbotOptions">
+          <!-- Opciones dinámicas -->
+        </div>
         <div class="chatbot-input">
           <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." />
           <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
@@ -336,18 +267,141 @@
       </div>
     </div>
 
-    <!-- Base de datos de respuestas predefinidas -->
-    <script id="chatbot-responses" type="application/json">
-      {
-        "servicios": "Ofrecemos servicios de ciberseguridad, desarrollo de software y soluciones en la nube.",
-        "precios": "Nuestros precios varían según el servicio. Contáctanos para más información.",
-        "contacto": "Puedes contactarnos al +51 955 294 117 o enviarnos un correo a scorpionsmrrobot@gmail.com.",
-        "horario": "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM.",
-        "quienes": "Somos Scorpions, una empresa líder en soluciones informáticas y ciberseguridad."
-      }
-    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
 
-    <script src="js/chatbot.js"></script>
-    <script src="js/carrito.js"></script>
+        themeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          if (body.classList.contains('dark-mode')) {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+          } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+          }
+        });
+      });
+
+      // Chatbot functionality
+      const chatbotMessages = document.querySelector('.chatbot-messages');
+      const chatbotInput = document.querySelector('.chatbot-input input');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const chatbotHeader = document.querySelector('.chatbot-header');
+      const chatbotOptions = document.querySelector('.chatbot-options');
+      let isChatbotOpen = false;
+
+      function toggleChatbot() {
+        isChatbotOpen = !isChatbotOpen;
+        chatbotMessages.style.display = isChatbotOpen ? 'flex' : 'none';
+        chatbotInput.parentNode.style.display = isChatbotOpen ? 'flex' : 'none';
+        chatbotOptions.style.display = isChatbotOpen ? 'flex' : 'none';
+        chatbotHeader.classList.toggle('closed');
+
+        // Add or remove the 'open' class based on chatbot state
+        if (chatbotContainer.classList) {
+          chatbotContainer.classList.toggle('open');
+        } else {
+          // For older browsers
+          var classes = chatbotContainer.className.split(' ');
+          var i = classes.indexOf('open');
+
+          if (i >= 0)
+            classes.splice(i, 1);
+          else
+            classes.push('open');
+          chatbotContainer.className = classes.join(' ');
+        }
+      }
+
+      function sendMessage(message) {
+        if (!message) {
+          message = chatbotInput.value;
+        }
+        if (message) {
+          displayMessage(message, 'user');
+          getBotResponse(message);
+          chatbotInput.value = '';
+        }
+      }
+
+      function displayMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chatbot-message', sender);
+        messageElement.textContent = message;
+        chatbotMessages.appendChild(messageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll to bottom
+      }
+
+      function getBotResponse(message) {
+        let response = "¡Hola! Soy tu asistente virtual de Scorpions. ¿En qué puedo ayudarte hoy?";
+
+        if (message.includes("servicios")) {
+          response = "Ofrecemos una amplia gama de servicios, incluyendo ciberseguridad, desarrollo de software a medida y soluciones integrales en la nube. ¿En cuál de estos servicios estás más interesado?";
+        } else if (message.includes("precios")) {
+          response = "Nuestros precios se adaptan a las necesidades específicas de cada cliente. Para obtener una cotización personalizada, por favor, proporciona detalles sobre tus requerimientos.";
+        } else if (message.includes("contacto")) {
+          response = "Puedes contactarnos directamente a través del +51 955 294 117 o enviarnos un correo electrónico a scorpionsmrrobot@gmail.com. ¡Estamos aquí para ayudarte!";
+        } else if (message.includes("seguro una venta") || message.includes("listo para contratar")) {
+          response = "¡Excelente decisión! Para avanzar, por favor, facilítame tu número de contacto y correo electrónico para coordinar los detalles y personalizar tu solución.";
+        } else if (message.includes("horario")) {
+          response = "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM. ¡Estamos listos para atenderte!";
+        } else if (message.includes("quiénes son")) {
+          response = "Somos Scorpions, una empresa líder en soluciones informáticas y ciberseguridad. Nos dedicamos a proteger y optimizar los sistemas de nuestros clientes con tecnología de vanguardia.";
+        }
+
+        setTimeout(() => {
+          displayMessage(response, 'bot');
+        }, 500);
+      }
+
+      function showSubOptions(option) {
+        chatbotOptions.innerHTML = ''; // Clear existing options
+
+        if (option === 'servicios') {
+          createOption('¿Qué tipo de servicios de ciberseguridad ofrecen?', 'servicios_ciberseguridad');
+          createOption('¿Realizan desarrollo de software a medida?', 'servicios_desarrollo');
+          createOption('¿Qué soluciones en la nube proporcionan?', 'servicios_nube');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'precios') {
+          createOption('¿Cómo determinan los precios de sus servicios?', 'precios_determinar');
+          createOption('¿Ofrecen descuentos o paquetes especiales?', 'precios_descuentos');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'contacto') {
+          createOption('¿Cuál es su número de teléfono?', 'contacto_telefono');
+          createOption('¿Cuál es su correo electrónico?', 'contacto_email');
+          createOption('¿Dónde están ubicados?', 'contacto_ubicacion');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'otros') {
+          createOption('¿Cuál es su horario de atención?', 'otros_horario');
+          createOption('¿Quiénes son?', 'otros_quienes');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'main_menu') {
+          createMainMenuOptions();
+        }
+      }
+
+      function createOption(text, value) {
+        const option = document.createElement('div');
+        option.className = 'chatbot-option';
+        option.textContent = text;
+        option.onclick = function() {
+          sendMessage(text);
+        };
+        chatbotOptions.appendChild(option);
+      }
+
+      function createMainMenuOptions() {
+        chatbotOptions.innerHTML = '';
+        createOption('Servicios', 'servicios');
+        createOption('Precios', 'precios');
+        createOption('Contacto', 'contacto');
+        createOption('Otros', 'otros');
+      }
+
+      // Hide messages and input initially
+      chatbotMessages.style.display = 'none';
+      chatbotInput.parentNode.style.display = 'none';
+      chatbotOptions.style.display = 'none';
+    </script>
   </body>
 </html>
