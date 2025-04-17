@@ -124,6 +124,10 @@ body.dark-mode .footer {
   background-color: #333;
 }
 
+body.dark-mode p {
+    color: #ffffff; /* Cambia el color de los párrafos a blanco */
+}
+
 /* Theme Toggle Styles */
 .theme-toggle {
   position: fixed;
@@ -424,41 +428,63 @@ body.dark-mode .footer {
     }
 
     .navbar {
-        width: 100%;
-        display: none;
-        position: absolute;
-        top: 100%; /* Position the menu directly below the header */
+        position: fixed; /* Fijo para que se sobreponga */
+        top: 0;
         left: 0;
-        background-color: rgba(0, 53, 102, 0.9);
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        text-align: center;
-        padding: 0;
-    }
-
-    .navbar li {
-        margin: 10px 0;
-    }
-
-    .navbar a {
-        display: block;
         width: 100%;
+        height: 100%; /* Ocupa toda la pantalla */
+        background-color: rgba(0, 53, 102, 0.95); /* Fondo semitransparente */
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Asegura que esté encima de otros elementos */
+        padding: 20px;
         box-sizing: border-box;
-        color: white; /* Ensure text is visible in mobile menu */
     }
 
     #menu:checked ~ .navbar {
-        display: block;
+        display: flex; /* Muestra el menú cuando está activado */
+    }
+
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .navbar li {
+        margin: 15px 0;
+    }
+
+    .navbar a {
+        font-size: 1.5em;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #00a8e8;
     }
 
     .menu-icon {
         display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.8em;
+        color: white;
+        cursor: pointer;
+        z-index: 1001; /* Asegura que esté encima del menú */
+    }
+
+    #menu {
+        display: none; /* Oculta el checkbox */
     }
 
     .theme-toggle {
@@ -495,7 +521,7 @@ body.dark-mode .footer {
     }
 
     .chatbot-body {
-        height: 300px;
+        height: calc(100vh - 60px); /* Ajusta la altura para dejar espacio al campo de texto */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
