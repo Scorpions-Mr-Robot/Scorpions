@@ -244,6 +244,7 @@ function generarBoleta() {
       <div class="boleta">
         <button onclick="cerrarBoleta()" class="btn-cerrar-boleta">&times;</button>
         <div class="boleta-header">
+          <img src="/imagenes/logo_Sin_fondo.png" alt="Logo" class="boleta-logo">
           <h2>BOLETA DE VENTA</h2>
           <p>N°: ${numeroBoleta}</p>
           <p>Fecha: ${fecha}</p>
@@ -275,6 +276,9 @@ function generarBoleta() {
         <div class="boleta-footer">
           <p>¡Gracias por su compra!</p>
         </div>
+        <button onclick="imprimirBoleta()" class="btn-imprimir">
+          <i class="fas fa-print"></i> Imprimir Boleta
+        </button>
       </div>
     </div>
   `;
@@ -292,43 +296,30 @@ function cerrarBoleta() {
   }
 }
 
-// Función para imprimir boleta
 function imprimirBoleta() {
-    const contenidoBoleta = document.querySelector('.boleta').innerHTML;
-    const ventanaImpresion = window.open('', '', 'width=800,height=600');
-    ventanaImpresion.document.write(`
-        <html>
-            <head>
-                <title>Boleta de Venta</title>
-                <style>
-                    body { font-family: Arial, sans-serif; }
-                    .boleta { padding: 20px; }
-                    .boleta-header { text-align: center; margin-bottom: 20px; }
-                    .boleta-info { margin: 15px 0; }
-                    table { width: 100%; border-collapse: collapse; }
-                    th, td { padding: 8px; border-bottom: 1px solid #ddd; }
-                    .boleta-footer { margin-top: 30px; text-align: center; }
-                    @media print {
-                        .btn-imprimir { display: none; }
-                    }
-                </style>
-            </head>
-            <body>
-                ${contenidoBoleta}
-            </body>
-        </html>
-    `);
-    ventanaImpresion.document.close();
-    ventanaImpresion.print();
-}
-
-// Function to close the receipt
-function cerrarBoleta() {
-  const boletaContainer = document.querySelector('.boleta-container');
-  if (boletaContainer) {
-    boletaContainer.remove();
-    boletaMostrada = false; // Reset the flag when the receipt is closed
-  }
+  const contenidoBoleta = document.querySelector('.boleta').innerHTML;
+  const ventanaImpresion = window.open('', '', 'width=800,height=600');
+  ventanaImpresion.document.write(`
+    <html>
+      <head>
+        <title>Boleta de Venta</title>
+        <style>
+          body { font-family: Arial, sans-serif; }
+          .boleta { padding: 20px; }
+          .boleta-header { text-align: center; margin-bottom: 20px; }
+          .boleta-logo { max-width: 150px; margin-bottom: 10px; }
+          table { width: 100%; border-collapse: collapse; }
+          th, td { padding: 8px; border-bottom: 1px solid #ddd; text-align: left; }
+          .boleta-footer { margin-top: 30px; text-align: center; }
+        </style>
+      </head>
+      <body>
+        ${contenidoBoleta}
+      </body>
+    </html>
+  `);
+  ventanaImpresion.document.close();
+  ventanaImpresion.print();
 }
 
 // Inicializar el carrito cuando se carga la página

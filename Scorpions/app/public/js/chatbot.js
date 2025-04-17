@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const chatbotMessages = document.getElementById('chatbotMessages');
   const chatbotInput = document.getElementById('chatbotInput');
   const chatbotOptions = document.getElementById('chatbotOptions');
-  const responses = JSON.parse(document.getElementById('chatbot-responses').textContent);
 
   let isChatbotOpen = false;
 
@@ -32,20 +31,18 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function getBotResponse(message) {
-    let response = "¡Hola! Soy tu asistente virtual de Scorpions. ¿En qué puedo ayudarte hoy?";
+    let response = "Lo siento, no entiendo tu pregunta.";
 
     if (message.includes("servicios")) {
-      response = "Ofrecemos una amplia gama de servicios, incluyendo ciberseguridad, desarrollo de software a medida y soluciones integrales en la nube. ¿En cuál de estos servicios estás más interesado?";
+      response = "Ofrecemos servicios de ciberseguridad, desarrollo de software y soluciones en la nube.";
     } else if (message.includes("precios")) {
-      response = "Nuestros precios se adaptan a las necesidades específicas de cada cliente. Para obtener una cotización personalizada, por favor, proporciona detalles sobre tus requerimientos.";
+      response = "Nuestros precios varían según el servicio. Contáctanos para más información.";
     } else if (message.includes("contacto")) {
-      response = "Puedes contactarnos directamente a través del +51 955 294 117 o enviarnos un correo electrónico a scorpionsmrrobot@gmail.com. ¡Estamos aquí para ayudarte!";
-    } else if (message.includes("seguro una venta") || message.includes("listo para contratar")) {
-      response = "¡Excelente decisión! Para avanzar, por favor, facilítame tu número de contacto y correo electrónico para coordinar los detalles y personalizar tu solución.";
+      response = "Puedes contactarnos al +51 955 294 117 o enviarnos un correo a scorpionsmrrobot@gmail.com.";
+    } else if (message.includes("sistemas")) {
+      response = "Ofrecemos sistemas de gestión empresarial, sistemas de inventario y sistemas de facturación.";
     } else if (message.includes("horario")) {
-      response = "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM. ¡Estamos listos para atenderte!";
-    } else if (message.includes("quiénes son")) {
-      response = "Somos Scorpions, una empresa líder en soluciones informáticas y ciberseguridad. Nos dedicamos a proteger y optimizar los sistemas de nuestros clientes con tecnología de vanguardia.";
+      response = "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM.";
     }
 
     setTimeout(() => {
@@ -56,4 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Event listeners
   document.querySelector('.chatbot-header').addEventListener('click', toggleChatbot);
   document.querySelector('.chatbot-input button').addEventListener('click', sendMessage);
+
+  // Add theme toggle
+  const themeToggle = document.createElement('div');
+  themeToggle.className = 'theme-toggle';
+  themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  themeToggle.onclick = toggleDarkMode;
+  document.body.appendChild(themeToggle);
 });

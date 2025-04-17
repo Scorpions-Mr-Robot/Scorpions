@@ -121,17 +121,18 @@ body.dark-mode .footer {
 
 /* Theme Toggle Styles */
 .theme-toggle {
-    font-size: 1.5em;
-    color: white;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 60px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
 }
 
 .theme-toggle:hover {
-    color: #00a8e8;
+  color: #00a8e8;
 }
 
 /* Header Content Styles */
