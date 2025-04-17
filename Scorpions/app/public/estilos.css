@@ -128,6 +128,22 @@ body.dark-mode p {
     color: #ffffff; /* Cambia el color de los párrafos a blanco */
 }
 
+/* Menú en modo oscuro para celulares */
+body.dark-mode .navbar {
+    background-color: #1e1e1e; /* Fondo sólido oscuro */
+    color: #ffffff; /* Texto en blanco */
+}
+
+body.dark-mode .navbar a {
+    background-color: #333; /* Fondo sólido para enlaces */
+    color: #ffffff; /* Texto en blanco */
+}
+
+body.dark-mode .navbar a:hover {
+    background-color: #444; /* Fondo más claro al pasar el cursor */
+    color: #00a8e8; /* Texto azul claro */
+}
+
 /* Theme Toggle Styles */
 .theme-toggle {
   position: fixed;

@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function getBotResponse(message) {
     let response = "Lo siento, no entiendo tu pregunta.";
 
+
     if (message.includes("que servicios ofrecen")) {
         response = "Ofrecemos servicios de ciberseguridad, desarrollo de software, soluciones en la nube, mantenimiento de sistemas y más.";
       } else if (message.includes("cuales son precios")) {
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else if (message.includes("tienen mantenimiento")) {
         response = "Realizamos mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento de tus sistemas.";
       }
-  
+
 
     setTimeout(() => {
       displayMessage(response, 'bot');
