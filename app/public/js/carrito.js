@@ -231,43 +231,92 @@ function procesarPagoExitoso() {
 }
 
 // Función para generar boleta
-function generarBoleta() {
+async function generarBoleta() {
     const fecha = new Date().toLocaleDateString();
     const numeroBoleta = Math.floor(Math.random() * 1000000);
-
-    const boleta = document.createElement('div');
-    boleta.className = 'pago-modal';
-    boleta.innerHTML = `
-        <div class="pago-contenido">
+    
+    const boletaHTML = `
+        <div class="boleta-container">
             <div class="boleta">
                 <div class="boleta-header">
-                    <h2>Boleta de Venta</h2>
-                    <p>Nº ${numeroBoleta}</p>
-                    <p>Fecha: ${fecha}</p>
+                    <img src="/imagenes/logo_Sin_fondo.png" alt="Logo" class="boleta-logo">
+                    <h2>BOLETA DE VENTA</h2>
+                    <div class="boleta-info">
+                        <p>N°: ${numeroBoleta}</p>
+                        <p>Fecha: ${fecha}</p>
+                    </div>
                 </div>
-                <div class="boleta-items">
-                    ${carrito.map(item => `
-                        <div style="display: flex; justify-content: space-between; margin: 5px 0;">
-                            <span>${item.nombre}</span>
-                            <span>$${item.precio}</span>
-                        </div>
-                    `).join('')}
+                
+                <div class="boleta-detalle">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${carrito.map(item => `
+                                <tr>
+                                    <td>${item.nombre}</td>
+                                    <td>$${item.precio.toFixed(2)}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total</td>
+                                <td>$${total.toFixed(2)}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-                <div class="boleta-total">
-                    <h3>Total: $${total}</h3>
+                
+                <div class="boleta-footer">
+                    <p>¡Gracias por su compra!</p>
+                    <p>Scorpions - Soluciones Informáticas</p>
                 </div>
-                <button onclick="imprimirBoleta()" class="btn-imprimir">
-                    <i class="fas fa-print"></i> Imprimir Boleta
-                </button>
             </div>
+            <button onclick="imprimirBoleta()" class="btn-imprimir">
+                <i class="fas fa-print"></i> Imprimir Boleta
+            </button>
         </div>
     `;
-    document.body.appendChild(boleta);
+
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = boletaHTML;
+    document.body.appendChild(modal);
 }
 
 // Función para imprimir boleta
 function imprimirBoleta() {
-    window.print();
+    const contenidoBoleta = document.querySelector('.boleta').innerHTML;
+    const ventanaImpresion = window.open('', '', 'width=800,height=600');
+    ventanaImpresion.document.write(`
+        <html>
+            <head>
+                <title>Boleta de Venta</title>
+                <style>
+                    body { font-family: Arial, sans-serif; }
+                    .boleta { padding: 20px; }
+                    .boleta-header { text-align: center; margin-bottom: 20px; }
+                    .boleta-info { margin: 15px 0; }
+                    table { width: 100%; border-collapse: collapse; }
+                    th, td { padding: 8px; border-bottom: 1px solid #ddd; }
+                    .boleta-footer { margin-top: 30px; text-align: center; }
+                    @media print {
+                        .btn-imprimir { display: none; }
+                    }
+                </style>
+            </head>
+            <body>
+                ${contenidoBoleta}
+            </body>
+        </html>
+    `);
+    ventanaImpresion.document.close();
+    ventanaImpresion.print();
 }
 
 // Inicializar el carrito cuando se carga la página

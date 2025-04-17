@@ -397,6 +397,72 @@ body {
     background-color: #218838;
 }
 
+.boleta-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.boleta {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.boleta-logo {
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+.boleta-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.boleta-info {
+    margin: 15px 0;
+}
+
+.boleta-detalle table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.boleta-detalle th,
+.boleta-detalle td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.boleta-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+}
+
+.btn-imprimir {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-imprimir:hover {
+    background: #27ae60;
+}
+
+@media print {
+    .btn-imprimir {
+        display: none;
+    }
+}
+
 @media(max-width:991px) {
 
     .menu {
