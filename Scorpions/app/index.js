@@ -25,7 +25,7 @@ requiredEnvVars.forEach(envVar => {
     }
 });
 
-// Middleware
+// Middleware básico
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,13 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Middleware de autenticación
 const authenticateAdmin = (req, res, next) => {
     const token = req.cookies.adminToken;
-    
-    if (!token) {
-        return res.redirect('/admin/login');
-    }
+    if (!token) return res.redirect('/admin/login');
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'default_secret');
         req.admin = decoded;
         next();
     } catch (err) {

@@ -1,12 +1,14 @@
 {
-  "name": "scorpions-admin",
+  "name": "scorpions",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Scorpions Website",
+  "main": "app/index.js",
+  "type": "commonjs",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node app/index.js",
     "build": "npm install"
   },
   "dependencies": {
