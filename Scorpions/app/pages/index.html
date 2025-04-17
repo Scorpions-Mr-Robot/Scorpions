@@ -14,58 +14,98 @@
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 300px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         overflow: hidden;
+        font-family: 'Roboto', sans-serif;
+        z-index: 1000;
       }
 
       .chatbot-header {
-        background-color: #0077b6;
+        background-color: #34495e;
         color: white;
-        padding: 10px;
+        padding: 16px;
         text-align: center;
         cursor: pointer;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .chatbot-header i {
+        font-size: 1.2em;
+        transition: transform 0.3s ease;
+      }
+
+      .chatbot-header.closed i {
+        transform: rotate(180deg);
       }
 
       .chatbot-messages {
-        padding: 10px;
-        height: 200px;
-        overflow-y: scroll;
+        padding: 16px;
+        height: 300px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
       }
 
       .chatbot-input {
-        padding: 10px;
+        padding: 16px;
         border-top: 1px solid #ddd;
         display: flex;
+        background-color: #fff;
       }
 
       .chatbot-input input {
         flex: 1;
-        padding: 8px;
+        padding: 10px;
         border: 1px solid #ddd;
-        border-radius: 5px;
+        border-radius: 6px;
         outline: none;
+        font-size: 1em;
+        color: #333;
       }
 
       .chatbot-input button {
-        background-color: #0077b6;
+        background-color: #3498db;
         color: white;
         border: none;
-        padding: 8px 12px;
-        border-radius: 5px;
+        padding: 10px 16px;
+        border-radius: 6px;
         cursor: pointer;
-        margin-left: 5px;
+        margin-left: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .chatbot-input button:hover {
+        background-color: #2980b9;
       }
 
       .chatbot-message {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        padding: 10px;
+        border-radius: 8px;
+        line-height: 1.4;
+        font-size: 1em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
       }
 
       .chatbot-message.user {
+        background-color: #e2f0ff;
         text-align: right;
-        color: #0077b6;
+        color: #2c3e50;
+        align-self: flex-end;
+      }
+
+      .chatbot-message.bot {
+        background-color: #f0f0f0;
+        color: #2c3e50;
+        align-self: flex-start;
       }
     </style>
   </head>
@@ -203,14 +243,15 @@
 
     <div class="chatbot-container">
       <div class="chatbot-header" onclick="toggleChatbot()">
-        Chat with us
+        <span>¿Necesitas Ayuda?</span>
+        <i class="fas fa-chevron-down"></i>
       </div>
       <div class="chatbot-messages">
         <!-- Chat messages will be displayed here -->
       </div>
       <div class="chatbot-input">
-        <input type="text" placeholder="Type your message..." />
-        <button onclick="sendMessage()">Send</button>
+        <input type="text" placeholder="Escribe tu pregunta..." />
+        <button onclick="sendMessage()">Enviar</button>
       </div>
     </div>
 
@@ -233,12 +274,14 @@
       const chatbotMessages = document.querySelector('.chatbot-messages');
       const chatbotInput = document.querySelector('.chatbot-input input');
       const chatbotContainer = document.querySelector('.chatbot-container');
+      const chatbotHeader = document.querySelector('.chatbot-header');
       let isChatbotOpen = false;
 
       function toggleChatbot() {
         isChatbotOpen = !isChatbotOpen;
-        chatbotMessages.style.display = isChatbotOpen ? 'block' : 'none';
+        chatbotMessages.style.display = isChatbotOpen ? 'flex' : 'none';
         chatbotInput.parentNode.style.display = isChatbotOpen ? 'flex' : 'none';
+        chatbotHeader.classList.toggle('closed');
       }
 
       function sendMessage() {
@@ -260,16 +303,20 @@
 
       function getBotResponse(message) {
         message = message.toLowerCase();
-        let response = "Lo siento, no entiendo tu pregunta.";
+        let response = "Agradezco tu mensaje. Actualmente estoy aprendiendo, pero puedo ayudarte con algunas preguntas comunes.";
 
         if (message.includes("servicios")) {
-          response = "Ofrecemos servicios de ciberseguridad, desarrollo de software y servicios en la nube.";
+          response = "Ofrecemos una amplia gama de servicios, incluyendo ciberseguridad, desarrollo de software a medida y soluciones integrales en la nube. ¿En cuál de estos servicios estás más interesado?";
         } else if (message.includes("precios")) {
-          response = "Nuestros precios varían según el servicio. Contáctanos para una cotización personalizada.";
+          response = "Nuestros precios se adaptan a las necesidades específicas de cada cliente. Para obtener una cotización personalizada, por favor, proporciona detalles sobre tus requerimientos.";
         } else if (message.includes("contacto")) {
-          response = "¿Deseas que te contactemos directamente? Si es así, aquí tienes nuestra información de contacto: +51 955 294 117 / scorpionsmrrobot@gmail.com";
-        } else if (message.includes("seguro una venta")) {
-          response = "¡Excelente! Por favor, contáctame al +51 955 294 117 o escríbeme a scorpionsmrrobot@gmail.com para coordinar los detalles.";
+          response = "Puedes contactarnos directamente a través del +51 955 294 117 o enviarnos un correo electrónico a scorpionsmrrobot@gmail.com. ¡Estamos aquí para ayudarte!";
+        } else if (message.includes("seguro una venta") || message.includes("listo para contratar")) {
+          response = "¡Excelente decisión! Para avanzar, por favor, facilítame tu número de contacto y correo electrónico para coordinar los detalles y personalizar tu solución.";
+        } else if (message.includes("horario")) {
+          response = "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM. ¡Estamos listos para atenderte!";
+        } else if (message.includes("quiénes son")) {
+          response = "Somos Scorpions, una empresa líder en soluciones informáticas y ciberseguridad. Nos dedicamos a proteger y optimizar los sistemas de nuestros clientes con tecnología de vanguardia.";
         }
 
         setTimeout(() => {
