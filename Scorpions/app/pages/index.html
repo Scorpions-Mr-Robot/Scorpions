@@ -8,6 +8,66 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" sizes="192x192" href="/imagenes/scorpio_icon.png">
+    <style>
+      /* Chatbot Styles */
+      .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .chatbot-header {
+        background-color: #0077b6;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .chatbot-messages {
+        padding: 10px;
+        height: 200px;
+        overflow-y: scroll;
+      }
+
+      .chatbot-input {
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        display: flex;
+      }
+
+      .chatbot-input input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .chatbot-input button {
+        background-color: #0077b6;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+
+      .chatbot-message {
+        margin-bottom: 10px;
+      }
+
+      .chatbot-message.user {
+        text-align: right;
+        color: #0077b6;
+      }
+    </style>
   </head>
 
   <body>
@@ -140,6 +200,20 @@
       style="position: fixed; bottom: 0; right: 0; opacity: 0; cursor: default;">
       Admin
     </button>
+
+    <div class="chatbot-container">
+      <div class="chatbot-header" onclick="toggleChatbot()">
+        Chat with us
+      </div>
+      <div class="chatbot-messages">
+        <!-- Chat messages will be displayed here -->
+      </div>
+      <div class="chatbot-input">
+        <input type="text" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.querySelector('.theme-toggle');
@@ -154,6 +228,58 @@
           }
         });
       });
+
+      // Chatbot functionality
+      const chatbotMessages = document.querySelector('.chatbot-messages');
+      const chatbotInput = document.querySelector('.chatbot-input input');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      let isChatbotOpen = false;
+
+      function toggleChatbot() {
+        isChatbotOpen = !isChatbotOpen;
+        chatbotMessages.style.display = isChatbotOpen ? 'block' : 'none';
+        chatbotInput.parentNode.style.display = isChatbotOpen ? 'flex' : 'none';
+      }
+
+      function sendMessage() {
+        const message = chatbotInput.value;
+        if (message) {
+          displayMessage(message, 'user');
+          getBotResponse(message);
+          chatbotInput.value = '';
+        }
+      }
+
+      function displayMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chatbot-message', sender);
+        messageElement.textContent = message;
+        chatbotMessages.appendChild(messageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll to bottom
+      }
+
+      function getBotResponse(message) {
+        message = message.toLowerCase();
+        let response = "Lo siento, no entiendo tu pregunta.";
+
+        if (message.includes("servicios")) {
+          response = "Ofrecemos servicios de ciberseguridad, desarrollo de software y servicios en la nube.";
+        } else if (message.includes("precios")) {
+          response = "Nuestros precios varían según el servicio. Contáctanos para una cotización personalizada.";
+        } else if (message.includes("contacto")) {
+          response = "¿Deseas que te contactemos directamente? Si es así, aquí tienes nuestra información de contacto: +51 955 294 117 / scorpionsmrrobot@gmail.com";
+        } else if (message.includes("seguro una venta")) {
+          response = "¡Excelente! Por favor, contáctame al +51 955 294 117 o escríbeme a scorpionsmrrobot@gmail.com para coordinar los detalles.";
+        }
+
+        setTimeout(() => {
+          displayMessage(response, 'bot');
+        }, 500);
+      }
+
+      // Hide messages and input initially
+      chatbotMessages.style.display = 'none';
+      chatbotInput.parentNode.style.display = 'none';
     </script>
   </body>
 </html>
