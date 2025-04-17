@@ -27,6 +27,7 @@ function actualizarCarrito() {
     li.textContent = `${item.nombre} - $${item.precio}`;
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Eliminar';
+    removeButton.classList.add('btn-remove');
     removeButton.onclick = () => eliminarDelCarrito(index);
     li.appendChild(removeButton);
     carritoList.appendChild(li);
@@ -46,4 +47,10 @@ function eliminarDelCarrito(index) {
 
   // Actualizar la interfaz
   actualizarCarrito();
+}
+
+// Función para visualizar el carrito en la consola (opcional)
+function visualizarCarrito() {
+  console.log('Carrito de Compras:', carrito);
+  console.log('Total:', total);
 }
