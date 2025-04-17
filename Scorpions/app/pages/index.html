@@ -327,11 +327,10 @@
         <!-- Chat messages will be displayed here -->
       </div>
       <div class="chatbot-options">
-        <div class="chatbot-option" onclick="sendMessage('¿Qué servicios ofrecen?')">¿Qué servicios ofrecen?</div>
-        <div class="chatbot-option" onclick="sendMessage('¿Cuáles son sus precios?')">¿Cuáles son sus precios?</div>
-        <div class="chatbot-option" onclick="sendMessage('¿Cómo puedo contactarlos?')">¿Cómo puedo contactarlos?</div>
-        <div class="chatbot-option" onclick="sendMessage('¿Cuál es su horario de atención?')">¿Cuál es su horario de atención?</div>
-        <div class="chatbot-option" onclick="sendMessage('¿Quiénes son?')">¿Quiénes son?</div>
+        <div class="chatbot-option" onclick="showSubOptions('servicios')">Servicios</div>
+        <div class="chatbot-option" onclick="showSubOptions('precios')">Precios</div>
+        <div class="chatbot-option" onclick="showSubOptions('contacto')">Contacto</div>
+        <div class="chatbot-option" onclick="showSubOptions('otros')">Otros</div>
       </div>
       <div class="chatbot-input">
         <input type="text" placeholder="Escribe tu pregunta..." />
@@ -405,7 +404,6 @@
       }
 
       function getBotResponse(message) {
-        message = message.toLowerCase();
         let response = "¡Hola! Soy tu asistente virtual de Scorpions. ¿En qué puedo ayudarte hoy?";
 
         if (message.includes("servicios")) {
@@ -425,6 +423,50 @@
         setTimeout(() => {
           displayMessage(response, 'bot');
         }, 500);
+      }
+
+      function showSubOptions(option) {
+        chatbotOptions.innerHTML = ''; // Clear existing options
+
+        if (option === 'servicios') {
+          createOption('¿Qué tipo de servicios de ciberseguridad ofrecen?', 'servicios_ciberseguridad');
+          createOption('¿Realizan desarrollo de software a medida?', 'servicios_desarrollo');
+          createOption('¿Qué soluciones en la nube proporcionan?', 'servicios_nube');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'precios') {
+          createOption('¿Cómo determinan los precios de sus servicios?', 'precios_determinar');
+          createOption('¿Ofrecen descuentos o paquetes especiales?', 'precios_descuentos');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'contacto') {
+          createOption('¿Cuál es su número de teléfono?', 'contacto_telefono');
+          createOption('¿Cuál es su correo electrónico?', 'contacto_email');
+          createOption('¿Dónde están ubicados?', 'contacto_ubicacion');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'otros') {
+          createOption('¿Cuál es su horario de atención?', 'otros_horario');
+          createOption('¿Quiénes son?', 'otros_quienes');
+          createOption('Volver al menú principal', 'main_menu');
+        } else if (option === 'main_menu') {
+          createMainMenuOptions();
+        }
+      }
+
+      function createOption(text, value) {
+        const option = document.createElement('div');
+        option.className = 'chatbot-option';
+        option.textContent = text;
+        option.onclick = function() {
+          sendMessage(text);
+        };
+        chatbotOptions.appendChild(option);
+      }
+
+      function createMainMenuOptions() {
+        chatbotOptions.innerHTML = '';
+        createOption('Servicios', 'servicios');
+        createOption('Precios', 'precios');
+        createOption('Contacto', 'contacto');
+        createOption('Otros', 'otros');
       }
 
       // Hide messages and input initially

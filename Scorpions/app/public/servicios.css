@@ -402,10 +402,12 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 800px;
 }
 
 .boleta {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -421,6 +423,7 @@ body {
 
 .boleta-info {
     margin: 15px 0;
+    text-align: left;
 }
 
 .boleta-detalle table {
@@ -436,13 +439,21 @@ body {
     text-align: left;
 }
 
+.boleta-total {
+    border-top: 2px solid #eee;
+    padding-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+
 .boleta-footer {
     margin-top: 30px;
     text-align: center;
     color: #666;
 }
 
-.btn-imprimir {
+.btn-imprimir,
+.btn-cerrar-boleta {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -451,15 +462,59 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.btn-imprimir:hover {
+.btn-imprimir:hover,
+.btn-cerrar-boleta:hover {
     background: #27ae60;
 }
 
 @media print {
-    .btn-imprimir {
+    .btn-imprimir,
+    .btn-cerrar-boleta {
         display: none;
+    }
+}
+
+/* Responsive adjustments for boleta */
+@media (max-width: 768px) {
+    .boleta-container {
+        padding: 10px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .boleta-header {
+        margin-bottom: 20px;
+    }
+
+    .boleta-logo {
+        max-width: 120px;
+    }
+
+    .boleta-info {
+        font-size: 0.9em;
+    }
+
+    .boleta-detalle th,
+    .boleta-detalle td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .boleta-total {
+        font-size: 1em;
+    }
+
+    .boleta-footer {
+        font-size: 0.8em;
+    }
+
+    .btn-imprimir,
+    .btn-cerrar-boleta {
+        padding: 8px 16px;
+        font-size: 0.9em;
     }
 }
 
