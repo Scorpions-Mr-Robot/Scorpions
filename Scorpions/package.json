@@ -1,9 +1,7 @@
 {
   "name": "scorpions",
   "version": "1.0.0",
-  "description": "Scorpions Website",
   "main": "app/index.js",
-  "type": "commonjs",
   "engines": {
     "node": "18.x"
   },
