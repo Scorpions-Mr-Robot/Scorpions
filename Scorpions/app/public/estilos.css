@@ -286,7 +286,7 @@ body.dark-mode .footer {
 
 .about-card p {
     font-size: 1.1em;
-    color: #555;
+    color: #ffffff;
 }
 
 .btn-about {
@@ -562,7 +562,7 @@ body.dark-mode .about-us {
 body.dark-mode .service-card,
 body.dark-mode .about-card {
     background-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.171);
 }
 
 body.dark-mode .footer {
