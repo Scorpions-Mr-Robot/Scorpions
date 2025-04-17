@@ -89,34 +89,39 @@ body.dark-mode {
 }
 
 /* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
 body.dark-mode .header {
-    background: linear-gradient(135deg, #333, #555);
+  background: linear-gradient(135deg, #333, #555);
 }
 
 body.dark-mode .navbar a {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #eee; /* Ensure text is visible in dark mode */
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #eee;
 }
 
 body.dark-mode .navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff; /* Ensure text is visible on hover in dark mode */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 
 body.dark-mode .services,
 body.dark-mode .about-us {
-    background-color: #333;
-    color: #eee;
+  background-color: #333;
+  color: #eee;
 }
 
 body.dark-mode .service-card,
 body.dark-mode .about-card {
-    background-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  background-color: #444;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .footer {
-    background-color: #333;
+  background-color: #333;
 }
 
 /* Theme Toggle Styles */
@@ -478,6 +483,54 @@ body.dark-mode .footer {
 
     .slide {
         width: 80%;
+    }
+
+    /* Ajustes para el asistente en dispositivos móviles */
+    .chatbot-container {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .chatbot-body {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .chatbot-messages {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .chatbot-input {
+        padding: 10px;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        position: relative;
+        bottom: 10px; /* Subir el campo de texto */
+    }
+
+    .chatbot-input input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1em;
+    }
+
+    .chatbot-input button {
+        margin-left: 10px;
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
     }
 }
 
