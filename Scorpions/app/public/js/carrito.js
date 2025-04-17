@@ -244,6 +244,9 @@ async function generarBoleta() {
     const boletaHTML = `
         <div class="boleta-container">
             <div class="boleta">
+                <button onclick="cerrarBoleta()" class="btn-cerrar-boleta">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
                 <div class="boleta-header">
                     <img src="/imagenes/logo_Sin_fondo.png" alt="Logo" class="boleta-logo">
                     <h2>BOLETA DE VENTA</h2>
@@ -285,9 +288,6 @@ async function generarBoleta() {
             </div>
             <button onclick="imprimirBoleta()" class="btn-imprimir">
                 <i class="fas fa-print"></i> Imprimir Boleta
-            </button>
-            <button onclick="cerrarBoleta()" class="btn-cerrar-boleta">
-                <i class="fas fa-times"></i> Cerrar Boleta
             </button>
         </div>
     `;
@@ -350,6 +350,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle function
     carritoToggle.addEventListener('click', function() {
+        const carritoElement = document.getElementById('carrito-container');
+        carritoElement.classList.toggle('active');
+    });
+
+    // Add event listener to the toggle button
+    document.querySelector('.carrito-toggle').addEventListener('click', function() {
         const carritoElement = document.getElementById('carrito-container');
         carritoElement.classList.toggle('active');
     });
