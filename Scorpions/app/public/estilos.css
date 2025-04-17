@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* General Styles */
@@ -63,12 +64,13 @@ body.dark-mode {
     font-weight: bold;
     transition: color 0.3s ease;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 20px; /* Add border-radius for rounded buttons */
+    background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background color */
 }
 
 .navbar a:hover {
     color: #ddd;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.3); /* Darken the background on hover */
 }
 
 /* Mobile Menu Styles */
@@ -77,86 +79,58 @@ body.dark-mode {
     font-size: 1.5em;
     color: white;
     cursor: pointer;
-    position: absolute; /* Position the hamburger button */
-    top: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    z-index: 11; /* Ensure it's above the menu */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
 }
 
 #menu {
     display: none;
 }
 
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* Dark Mode Styles */
+body.dark-mode .header {
+    background: linear-gradient(135deg, #333, #555);
+}
 
-    .logo img {
-        margin-bottom: 10px;
-    }
+body.dark-mode .navbar a {
+    background-color: rgba(0, 0, 0, 0.3); /* Dark background for dark mode */
+}
 
-    .navbar {
-        width: 100%;
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: rgba(0, 53, 102, 0.9); /* Darker background for the mobile menu */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-        padding: 10px; /* Add padding to the mobile menu */
-        box-sizing: border-box; /* Include padding in the width */
-    }
+body.dark-mode .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background on hover in dark mode */
+}
 
-    .navbar ul {
-        flex-direction: column;
-        text-align: center;
-        padding: 0; /* Remove padding from the list */
-    }
+body.dark-mode .services,
+body.dark-mode .about-us {
+    background-color: #333;
+    color: #eee;
+}
 
-    .navbar li {
-        margin: 10px 0;
-    }
+body.dark-mode .service-card,
+body.dark-mode .about-card {
+    background-color: #444;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
 
-    .navbar a {
-        display: block; /* Make links fill the entire width */
-        width: 100%;
-        box-sizing: border-box; /* Include padding in the width */
-    }
+body.dark-mode .footer {
+    background-color: #333;
+}
 
-    #menu:checked ~ .navbar {
-        display: block;
-    }
+/* Theme Toggle Styles */
+.theme-toggle {
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 60px;
+}
 
-    .menu-icon {
-        display: block;
-    }
-
-    .theme-toggle {
-        position: absolute;
-        top: 20px;
-        right: 60px;
-    }
-
-    .header-content {
-        padding: 60px 0;
-    }
-
-    .header-content h1 {
-        font-size: 2.5em;
-    }
-
-    .services-grid,
-    .about-grid,
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-
-    .slide {
-        width: 80%;
-    }
+.theme-toggle:hover {
+    color: #00a8e8;
 }
 
 /* Header Content Styles */
@@ -431,13 +405,90 @@ body.dark-mode {
     font-size: 0.9em;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo img {
+        margin-bottom: 10px;
+    }
+
+    .navbar {
+        width: 100%;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 53, 102, 0.9);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .navbar a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #menu:checked ~ .navbar {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 60px;
+    }
+
+    .header-content {
+        padding: 60px 0;
+    }
+
+    .header-content h1 {
+        font-size: 2.5em;
+    }
+
+    .services-grid,
+    .about-grid,
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .slide {
+        width: 80%;
+    }
+}
+
 /* Dark Mode Styles */
 body.dark-mode .header {
     background: linear-gradient(135deg, #333, #555);
 }
 
-body.dark-mode .navbar {
-    background-color: rgba(51, 51, 51, 0.9); /* Darker background for the mobile menu in dark mode */
+body.dark-mode .navbar a {
+    background-color: rgba(0, 0, 0, 0.3); /* Dark background for dark mode */
+}
+
+body.dark-mode .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background on hover in dark mode */
 }
 
 body.dark-mode .services,
@@ -455,20 +506,3 @@ body.dark-mode .about-card {
 body.dark-mode .footer {
     background-color: #333;
 }
-
-/* Theme Toggle Styles */
-.theme-toggle {
-    font-size: 1.5em;
-    color: white;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 60px; /* Adjust to make space for the hamburger button */
-}
-
-.theme-toggle:hover {
-    color: #00a8e8;
-}
-
-
