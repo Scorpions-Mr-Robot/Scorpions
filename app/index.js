@@ -100,8 +100,27 @@ app.get('/admin/dashboard', authenticateAdmin, (req, res) => {
     res.sendFile(path.join(__dirname, 'pages', 'admin', 'dashboard.html'));
 });
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ 
+        success: false, 
+        message: 'Error interno del servidor' 
+    });
+});
+
+// 404 handler
+app.use((req, res) => {
+    res.status(404).json({ 
+        success: false, 
+        message: 'Ruta no encontrada' 
+    });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
+}).on('error', (err) => {
+    console.error('Error al iniciar el servidor:', err);
 });
 
