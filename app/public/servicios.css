@@ -280,6 +280,123 @@ body {
     color: #c0392b;
 }
 
+/* Estilos para los formularios de pago */
+.pago-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+}
+
+.pago-contenido {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.pago-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cerrar-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.form-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-grupo label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-grupo input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.qr-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.qr-container img {
+    max-width: 200px;
+    margin-bottom: 15px;
+}
+
+.qr-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.boleta {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.boleta-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.boleta-items {
+    margin-bottom: 20px;
+}
+
+.boleta-total {
+    border-top: 2px solid #eee;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.btn-imprimir {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-imprimir:hover {
+    background-color: #218838;
+}
+
 @media(max-width:991px) {
 
     .menu {
