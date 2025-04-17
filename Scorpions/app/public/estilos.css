@@ -1,180 +1,176 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    background-color: #121212;
+    background-color: #222;
     color: #eee;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p, .dark-mode a {
+    color: #fff;
+}
+
+.dark-mode .service-card, .dark-mode .about-card {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .footer {
+    background-color: #333;
+    color: #eee;
+}
+
+.dark-mode .menu {
+    background-color: #333;
+}
+
+.dark-mode .menu a {
+    color: #fff;
+}
+
+.dark-mode .menu .navbar ul li a {
+    color: #fff;
+}
+
+.dark-mode .chatbot-container {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .chatbot-header {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .chatbot-input {
+    background-color: #555;
+}
+
+.dark-mode .chatbot-input input {
+    background-color: #666;
+    color: #fff;
+    border-color: #777;
+}
+
+.dark-mode .chatbot-input button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .chatbot-message.user {
+    background-color: #666;
+    color: #fff;
+}
+
+.dark-mode .chatbot-message.bot {
+    background-color: #777;
+    color: #fff;
 }
 
 /* Header Styles */
 .header {
-    background: linear-gradient(135deg, #003566, #0077b6);
-    color: white;
+    background-color: #fff;
     padding: 20px 0;
-    position: relative;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
 .logo img {
     height: 50px;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-}
-
 .navbar ul {
     list-style: none;
-    display: flex;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 .navbar li {
-    margin-left: 20px;
+    margin: 0 15px;
 }
 
 .navbar a {
-    color: white;
     text-decoration: none;
+    color: #333;
     font-weight: bold;
-    transition: color 0.3s ease;
-    padding: 10px 15px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    transition: color 0.3s;
 }
 
 .navbar a:hover {
-    color: #ddd;
-    background-color: rgba(255, 255, 255, 0.3);
+    color: #00a8e8;
 }
 
-/* Mobile Menu Styles */
-.menu-icon {
-    display: none;
-    font-size: 1.5em;
-    color: white;
-    cursor: pointer;
-    position: absolute;
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 11;
-}
-
-#menu {
-    display: none;
-}
-
-/* Dark Mode Styles */
-body.dark-mode .header {
-    background: linear-gradient(135deg, #333, #555);
-}
-
-body.dark-mode .navbar a {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #eee; /* Ensure text is visible in dark mode */
-}
-
-body.dark-mode .navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff; /* Ensure text is visible on hover in dark mode */
-}
-
-body.dark-mode .services,
-body.dark-mode .about-us {
-    background-color: #333;
-    color: #eee;
-}
-
-body.dark-mode .service-card,
-body.dark-mode .about-card {
-    background-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .footer {
-    background-color: #333;
-}
-
-/* Theme Toggle Styles */
-.theme-toggle {
-    font-size: 1.5em;
+    background-color: #00a8e8;
     color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 60px;
-}
-
-.theme-toggle:hover {
-    color: #00a8e8;
+    z-index: 1000;
 }
 
 /* Header Content Styles */
 .header-content {
+    padding: 50px 20px;
     text-align: center;
-    padding: 80px 0;
 }
 
-.header-content h1 {
+.header-info h1 {
     font-size: 3em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    color: #003566;
 }
 
-.header-content p {
+.header-info p {
     font-size: 1.2em;
+    color: #555;
     margin-bottom: 30px;
 }
 
 .btn-1 {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 15px 30px;
     background-color: #00a8e8;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .btn-1:hover {
     background-color: #0077b6;
 }
 
-/* Services Section Styles */
+/* Services Styles */
 .services {
-    padding: 60px 0;
+    padding: 50px 20px;
     text-align: center;
 }
 
 .services h2 {
     font-size: 2.5em;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #003566;
 }
 
@@ -198,8 +194,8 @@ body.dark-mode .footer {
 
 .service-card i {
     font-size: 3em;
-    color: #0077b6;
     margin-bottom: 20px;
+    color: #00a8e8;
 }
 
 .service-card h3 {
@@ -221,31 +217,23 @@ body.dark-mode .footer {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .btn-service:hover {
     background-color: #0077b6;
 }
 
-/* About Us Section Styles */
+/* About Us Styles */
 .about-us {
-    padding: 60px 0;
+    padding: 50px 20px;
     text-align: center;
-    background-color: #f9f9f9;
 }
 
 .about-us h2 {
     font-size: 2.5em;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #003566;
-}
-
-.about-us p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 40px;
 }
 
 .about-grid {
@@ -291,23 +279,22 @@ body.dark-mode .footer {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .btn-about:hover {
     background-color: #0077b6;
 }
 
-/* Portfolio Section Styles */
+/* Portfolio Styles */
 .portfolio {
-    padding: 60px 0;
+    padding: 50px 20px;
     text-align: center;
 }
 
 .portfolio h2 {
     font-size: 2.5em;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #003566;
 }
 
@@ -320,31 +307,25 @@ body.dark-mode .footer {
 
 .slide {
     flex: none;
-    width: 400px;
-    height: 300px;
-    margin-right: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 200px;
+    margin-right: 10px;
     scroll-snap-align: start;
-    transition: transform 0.3s ease;
-}
-
-.slide:hover {
-    transform: scale(1.05);
+    position: relative;
 }
 
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 /* Footer Styles */
 .footer {
-    background-color: #003566;
+    background-color: #333;
     color: white;
-    padding: 40px 0;
+    padding: 50px 20px;
     text-align: center;
 }
 
@@ -352,25 +333,22 @@ body.dark-mode .footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-}
-
-.footer-section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .footer-section h2 {
     font-size: 1.5em;
-    margin-bottom: 15px;
-    color: #00a8e8;
+    margin-bottom: 20px;
 }
 
 .footer-section p {
-    font-size: 1em;
-    line-height: 1.4;
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 
 .footer-section ul {
     list-style: none;
+    padding: 0;
 }
 
 .footer-section li {
@@ -380,7 +358,7 @@ body.dark-mode .footer {
 .footer-section a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 .footer-section a:hover {
@@ -389,408 +367,119 @@ body.dark-mode .footer {
 
 .footer-section.social a {
     display: inline-block;
-    margin-right: 10px;
+    margin: 0 10px;
     font-size: 1.5em;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.footer-section.social a:hover {
-    color: #00a8e8;
 }
 
 .footer-bottom {
-    margin-top: 30px;
+    border-top: 1px solid #555;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.9em;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logo img {
-        margin-bottom: 10px;
-    }
-
-    .navbar {
-        width: 100%;
-        display: none;
-        position: absolute;
-        top: 70px; /* Position the menu directly below the header */
-        left: 0;
-        background-color: rgba(0, 53, 102, 0.9);
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        text-align: center;
-        padding: 0;
-    }
-
-    .navbar li {
-        margin: 10px 0;
-    }
-
-    .navbar a {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-        color: white; /* Ensure text is visible in mobile menu */
-    }
-
-    #menu:checked ~ .navbar {
-        display: block;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .theme-toggle {
-        position: absolute;
-        top: 20px;
-        right: 60px;
-    }
-
-    .header-content {
-        padding: 60px 0;
-    }
-
-    .header-content h1 {
-        font-size: 2.5em;
-    }
-
-    .services-grid,
-    .about-grid,
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-
-    .slide {
-        width: 80%;
-    }
-}
-
-/* Dark Mode Styles */
-body.dark-mode .header {
-    background: linear-gradient(135deg, #333, #555);
-}
-
-body.dark-mode .navbar {
-    background-color: rgba(51, 51, 51, 0.9); /* Dark background for the mobile menu in dark mode */
-}
-
-body.dark-mode .navbar a {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #eee; /* Ensure text is visible in dark mode */
-}
-
-body.dark-mode .navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff; /* Ensure text is visible on hover in dark mode */
-}
-
-body.dark-mode .services,
-body.dark-mode .about-us {
-    background-color: #333;
-    color: #eee;
-}
-
-body.dark-mode .service-card,
-body.dark-mode .about-card {
-    background-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .footer {
-    background-color: #333;
-}
-
-/* Estilos del asistente */
-.chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  font-family: 'Roboto', sans-serif;
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-.chatbot-container.minimized {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.chatbot-header {
-  background-color: #34495e;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.chatbot-header i {
-  font-size: 1.2em;
-  transition: transform 0.3s ease;
-}
-
-.chatbot-header.closed i {
-  transform: rotate(180deg);
-}
-
-.chatbot-body {
-  display: none;
-  flex-direction: column;
-  height: 400px;
-}
-
-.chatbot-container.open .chatbot-body {
-  display: flex;
-}
-
-.chatbot-messages {
-  flex: 1;
-  padding: 12px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.chatbot-message {
-  margin-bottom: 8px;
-  padding: 8px;
-  border-radius: 8px;
-  line-height: 1.3;
-  font-size: 0.9em;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.chatbot-message.user {
-  background-color: #e2f0ff;
-  text-align: right;
-  color: #2c3e50;
-  align-self: flex-end;
-}
-
-.chatbot-message.bot {
-  background-color: #f0f0f0;
-  color: #2c3e50;
-  align-self: flex-start;
-}
-
-.chatbot-options {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-}
-
-.chatbot-option {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 6px 10px;
-  margin-bottom: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 0.85em;
-}
-
-.chatbot-option:hover {
-  background-color: #e0e0e0;
-}
-
-.chatbot-input {
-  display: flex;
-  padding: 8px;
-  border-top: 1px solid #ddd;
-  background-color: #fff;
-}
-
-.chatbot-input input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  outline: none;
-  font-size: 0.9em;
-  color: #333;
-}
-
-.chatbot-input button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.chatbot-input button:hover {
-  background-color: #2980b9;
-}
-
-/* Ajustes para el asistente en dispositivos móviles */
-@media (max-width: 768px) {
-  .chatbot-container {
-    width: 100%; /* Ocupa todo el ancho */
-    height: auto; /* Ajusta la altura automáticamente */
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-  }
-
-  .chatbot-container.open {
-    height: 400px; /* Altura fija para el asistente expandido */
-  }
-
-  .chatbot-header {
-    padding: 10px;
-    font-size: 1em;
-  }
-
-  .chatbot-messages {
-    height: 250px; /* Espacio suficiente para los mensajes */
-    padding: 10px;
-  }
-
-  .chatbot-input {
-    padding: 10px;
-  }
-
-  .chatbot-input input {
-    font-size: 1em;
-    padding: 10px;
-  }
-
-  .chatbot-input button {
-    font-size: 1em;
-    padding: 10px 15px;
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .chatbot-container {
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-  }
-
-  .chatbot-header {
-    padding: 10px;
-  }
-
-  .chatbot-body {
-    height: 300px;
-  }
 }
 
 /* Chatbot Styles */
 .chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  font-family: 'Roboto', sans-serif;
-  z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1000;
 }
 
 .chatbot-header {
-  background-color: #34495e;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #34495e;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .chatbot-body {
-  display: none;
-  flex-direction: column;
-  height: 400px;
+    display: none;
+    flex-direction: column;
+    height: 400px;
 }
 
 .chatbot-container.open .chatbot-body {
-  display: flex;
+    display: flex;
 }
 
 .chatbot-messages {
-  flex: 1;
-  padding: 12px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-message {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 1.3;
+    font-size: 0.9em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.chatbot-message.user {
+    background-color: #e2f0ff;
+    text-align: right;
+    color: #2c3e50;
+    align-self: flex-end;
+}
+
+.chatbot-message.bot {
+    background-color: #f0f0f0;
+    color: #2c3e50;
+    align-self: flex-start;
 }
 
 .chatbot-input {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ddd;
-  background-color: #fff;
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
 }
 
 .chatbot-input input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  outline: none;
-  font-size: 1em;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1em;
 }
 
 .chatbot-input button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 8px;
-  font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 8px;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
-  .chatbot-container {
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-  }
+    .chatbot-container {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
 
-  .chatbot-body {
-    height: 300px;
-  }
+    .chatbot-body {
+        height: 300px;
+    }
 }
 
 .boleta-container {
