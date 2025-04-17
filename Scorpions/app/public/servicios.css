@@ -162,85 +162,85 @@ body {
 
 /* Estilos del carrito */
 .carrito {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  width: 350px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .carrito h2 {
-  color: #2c3e50;
-  margin-bottom: 20px;
-  text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .carrito-items {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
 }
 
 .carrito-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
 }
 
 .carrito-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 #total {
-  text-align: right;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #2c3e50;
-  margin: 20px 0;
-  padding-top: 10px;
-  border-top: 2px solid #eee;
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 20px 0;
+    padding-top: 10px;
+    border-top: 2px solid #eee;
 }
 
 .opciones-pago {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .btn-pago {
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 .btn-pago.tarjeta {
-  background-color: #2ecc71;
-  color: white;
+    background-color: #2ecc71;
+    color: white;
 }
 
 .btn-pago.yape {
-  background-color: #9b59b6;
-  color: white;
+    background-color: #9b59b6;
+    color: white;
 }
 
 .btn-pago.plin {
-  background-color: #e74c3c;
-  color: white;
+    background-color: #e74c3c;
+    color: white;
 }
 
 .btn-pago:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .notificacion {
@@ -520,5 +520,58 @@ body {
         margin: 0 10px;
     }
 
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .carrito {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.95);
+        overflow-y: auto;
+        z-index: 1001;
+        display: none; /* Hidden by default */
+    }
+
+    .carrito.active {
+        display: block; /* Show when active */
+    }
+
+    .carrito h2 {
+        font-size: 2em;
+    }
+
+    .opciones-pago {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-pago {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    /* Circular Button */
+    .carrito-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #3498db;
+        color: white;
+        font-size: 1.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1002;
+    }
 }
 
