@@ -10,30 +10,35 @@ document.getElementById('adminLoginForm').addEventListener('submit', async (e) =
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password }),
+            credentials: 'include'
         });
 
-        if (response.ok) {
-            // Credenciales correctas
+        const data = await response.json();
+
+        if (data.success) {
             window.location.href = '/admin/dashboard';
         } else {
-            // Credenciales incorrectas
-            showError('Usuario o contraseña incorrectos');
+            showError(data.message || 'Credenciales inválidas');
         }
     } catch (error) {
-        showError('Error al intentar iniciar sesión');
+        showError('Error en el servidor');
     }
 });
 
 function showError(message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
+    const errorElement = document.querySelector('.error-message') || 
+                        document.createElement('div');
+    errorElement.className = 'error-message';
+    errorElement.textContent = message;
     
     const form = document.getElementById('adminLoginForm');
-    const existingError = form.querySelector('.error-message');
-    if (existingError) {
-        existingError.remove();
+    if (!document.querySelector('.error-message')) {
+        form.appendChild(errorElement);
     }
-    form.appendChild(errorDiv);
 }
+
+JWT_SECRET=tu_secreto_muy_seguro
+ADMIN_USER=tu_usuario_admin
+ADMIN_PASS=tu_hash_bcrypt
+NODE_ENV=production
