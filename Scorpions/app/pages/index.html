@@ -320,18 +320,15 @@
       Admin
     </button>
 
+    <!-- Chatbot -->
     <div class="chatbot-container">
       <div class="chatbot-header" onclick="toggleChatbot()">
         <span>Asistente Virtual</span>
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="chatbot-body">
-        <div class="chatbot-messages" id="chatbotMessages">
-          <!-- Mensajes del asistente -->
-        </div>
-        <div class="chatbot-options" id="chatbotOptions">
-          <!-- Opciones dinámicas -->
-        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chatbot-options" id="chatbotOptions"></div>
         <div class="chatbot-input">
           <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." />
           <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
@@ -339,141 +336,18 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const themeToggle = document.querySelector('.theme-toggle');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', function() {
-          body.classList.toggle('dark-mode');
-          if (body.classList.contains('dark-mode')) {
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-          } else {
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-          }
-        });
-      });
-
-      // Chatbot functionality
-      const chatbotMessages = document.querySelector('.chatbot-messages');
-      const chatbotInput = document.querySelector('.chatbot-input input');
-      const chatbotContainer = document.querySelector('.chatbot-container');
-      const chatbotHeader = document.querySelector('.chatbot-header');
-      const chatbotOptions = document.querySelector('.chatbot-options');
-      let isChatbotOpen = false;
-
-      function toggleChatbot() {
-        isChatbotOpen = !isChatbotOpen;
-        chatbotMessages.style.display = isChatbotOpen ? 'flex' : 'none';
-        chatbotInput.parentNode.style.display = isChatbotOpen ? 'flex' : 'none';
-        chatbotOptions.style.display = isChatbotOpen ? 'flex' : 'none';
-        chatbotHeader.classList.toggle('closed');
-
-        // Add or remove the 'open' class based on chatbot state
-        if (chatbotContainer.classList) {
-          chatbotContainer.classList.toggle('open');
-        } else {
-          // For older browsers
-          var classes = chatbotContainer.className.split(' ');
-          var i = classes.indexOf('open');
-
-          if (i >= 0)
-            classes.splice(i, 1);
-          else
-            classes.push('open');
-          chatbotContainer.className = classes.join(' ');
-        }
+    <!-- Base de datos de respuestas predefinidas -->
+    <script id="chatbot-responses" type="application/json">
+      {
+        "servicios": "Ofrecemos servicios de ciberseguridad, desarrollo de software y soluciones en la nube.",
+        "precios": "Nuestros precios varían según el servicio. Contáctanos para más información.",
+        "contacto": "Puedes contactarnos al +51 955 294 117 o enviarnos un correo a scorpionsmrrobot@gmail.com.",
+        "horario": "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM.",
+        "quienes": "Somos Scorpions, una empresa líder en soluciones informáticas y ciberseguridad."
       }
-
-      function sendMessage(message) {
-        if (!message) {
-          message = chatbotInput.value;
-        }
-        if (message) {
-          displayMessage(message, 'user');
-          getBotResponse(message);
-          chatbotInput.value = '';
-        }
-      }
-
-      function displayMessage(message, sender) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chatbot-message', sender);
-        messageElement.textContent = message;
-        chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll to bottom
-      }
-
-      function getBotResponse(message) {
-        let response = "¡Hola! Soy tu asistente virtual de Scorpions. ¿En qué puedo ayudarte hoy?";
-
-        if (message.includes("servicios")) {
-          response = "Ofrecemos una amplia gama de servicios, incluyendo ciberseguridad, desarrollo de software a medida y soluciones integrales en la nube. ¿En cuál de estos servicios estás más interesado?";
-        } else if (message.includes("precios")) {
-          response = "Nuestros precios se adaptan a las necesidades específicas de cada cliente. Para obtener una cotización personalizada, por favor, proporciona detalles sobre tus requerimientos.";
-        } else if (message.includes("contacto")) {
-          response = "Puedes contactarnos directamente a través del +51 955 294 117 o enviarnos un correo electrónico a scorpionsmrrobot@gmail.com. ¡Estamos aquí para ayudarte!";
-        } else if (message.includes("seguro una venta") || message.includes("listo para contratar")) {
-          response = "¡Excelente decisión! Para avanzar, por favor, facilítame tu número de contacto y correo electrónico para coordinar los detalles y personalizar tu solución.";
-        } else if (message.includes("horario")) {
-          response = "Nuestro horario de atención es de lunes a viernes de 9:00 AM a 6:00 PM. ¡Estamos listos para atenderte!";
-        } else if (message.includes("quiénes son")) {
-          response = "Somos Scorpions, una empresa líder en soluciones informáticas y ciberseguridad. Nos dedicamos a proteger y optimizar los sistemas de nuestros clientes con tecnología de vanguardia.";
-        }
-
-        setTimeout(() => {
-          displayMessage(response, 'bot');
-        }, 500);
-      }
-
-      function showSubOptions(option) {
-        chatbotOptions.innerHTML = ''; // Clear existing options
-
-        if (option === 'servicios') {
-          createOption('¿Qué tipo de servicios de ciberseguridad ofrecen?', 'servicios_ciberseguridad');
-          createOption('¿Realizan desarrollo de software a medida?', 'servicios_desarrollo');
-          createOption('¿Qué soluciones en la nube proporcionan?', 'servicios_nube');
-          createOption('Volver al menú principal', 'main_menu');
-        } else if (option === 'precios') {
-          createOption('¿Cómo determinan los precios de sus servicios?', 'precios_determinar');
-          createOption('¿Ofrecen descuentos o paquetes especiales?', 'precios_descuentos');
-          createOption('Volver al menú principal', 'main_menu');
-        } else if (option === 'contacto') {
-          createOption('¿Cuál es su número de teléfono?', 'contacto_telefono');
-          createOption('¿Cuál es su correo electrónico?', 'contacto_email');
-          createOption('¿Dónde están ubicados?', 'contacto_ubicacion');
-          createOption('Volver al menú principal', 'main_menu');
-        } else if (option === 'otros') {
-          createOption('¿Cuál es su horario de atención?', 'otros_horario');
-          createOption('¿Quiénes son?', 'otros_quienes');
-          createOption('Volver al menú principal', 'main_menu');
-        } else if (option === 'main_menu') {
-          createMainMenuOptions();
-        }
-      }
-
-      function createOption(text, value) {
-        const option = document.createElement('div');
-        option.className = 'chatbot-option';
-        option.textContent = text;
-        option.onclick = function() {
-          sendMessage(text);
-        };
-        chatbotOptions.appendChild(option);
-      }
-
-      function createMainMenuOptions() {
-        chatbotOptions.innerHTML = '';
-        createOption('Servicios', 'servicios');
-        createOption('Precios', 'precios');
-        createOption('Contacto', 'contacto');
-        createOption('Otros', 'otros');
-      }
-
-      // Hide messages and input initially
-      chatbotMessages.style.display = 'none';
-      chatbotInput.parentNode.style.display = 'none';
-      chatbotOptions.style.display = 'none';
     </script>
+
+    <script src="js/chatbot.js"></script>
+    <script src="js/carrito.js"></script>
   </body>
 </html>
