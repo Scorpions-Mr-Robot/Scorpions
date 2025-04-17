@@ -17,12 +17,15 @@
           <img src="../imagenes/logo_Sin_fondo.png" alt="Scorpions Logo">
         </a>
         <input type="checkbox" id="menu" />
-        <label for="menu"><i class='bx bx-menu'></i></label>
+        <label for="menu" class="menu-icon"><i class='bx bx-menu'></i></label>
         <ul class="navbar">
           <li><a href="login"><i class="fa-solid fa-user"></i> Login</a></li>
           <li><a href="servicios">Servicios</a></li>
           <li><a href="horarios">Horario</a></li>
           <li><a href="sistemas">Sistemas</a></li>
+          <li class="theme-toggle">
+            <i class="fas fa-moon"></i>
+          </li>
         </ul>
       </nav>
       <section class="header-content container">
@@ -137,5 +140,20 @@
       style="position: fixed; bottom: 0; right: 0; opacity: 0; cursor: default;">
       Admin
     </button>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          if (body.classList.contains('dark-mode')) {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+          } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+          }
+        });
+      });
+    </script>
   </body>
 </html>

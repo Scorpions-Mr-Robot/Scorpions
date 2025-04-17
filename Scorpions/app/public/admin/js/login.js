@@ -11,12 +11,18 @@ document.getElementById('adminLoginForm').addEventListener('submit', async (e) =
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ username, password }),
-            credentials: 'include'
+            credentials: 'include' // Make sure this is present
         });
 
         const data = await response.json();
 
         if (data.success) {
+            res.cookie('adminToken', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'strict',
+                maxAge: 24 * 60 * 60 * 1000 // 24 horas
+            });
             window.location.href = '/admin/dashboard';
         } else {
             showError(data.message || 'Credenciales inválidas');
