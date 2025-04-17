@@ -2,9 +2,12 @@ services:
   - type: web
     name: scorpions
     env: node
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: cd Scorpions && npm install
+    startCommand: cd Scorpions && npm start
     nodeVersion: 18.x
     envVars:
       - key: NODE_ENV
         value: production
+    buildFilter:
+      paths:
+      - Scorpions/**

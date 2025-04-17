@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node app/index.js",
-    "build": "cd app && npm install"
+    "build": "npm install"
   },
   "dependencies": {
     "express": "^4.18.2",
