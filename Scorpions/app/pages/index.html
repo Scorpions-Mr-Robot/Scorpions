@@ -322,21 +322,20 @@
 
     <div class="chatbot-container">
       <div class="chatbot-header" onclick="toggleChatbot()">
-        <span>¿Necesitas Ayuda?</span>
+        <span>Asistente Virtual</span>
         <i class="fas fa-chevron-down"></i>
       </div>
-      <div class="chatbot-messages">
-        <!-- Chat messages will be displayed here -->
-      </div>
-      <div class="chatbot-options">
-        <div class="chatbot-option" onclick="showSubOptions('servicios')">Servicios</div>
-        <div class="chatbot-option" onclick="showSubOptions('precios')">Precios</div>
-        <div class="chatbot-option" onclick="showSubOptions('contacto')">Contacto</div>
-        <div class="chatbot-option" onclick="showSubOptions('otros')">Otros</div>
-      </div>
-      <div class="chatbot-input">
-        <input type="text" placeholder="Escribe tu pregunta..." />
-        <button onclick="sendMessage()">Enviar</button>
+      <div class="chatbot-body">
+        <div class="chatbot-messages" id="chatbotMessages">
+          <!-- Mensajes del asistente -->
+        </div>
+        <div class="chatbot-options" id="chatbotOptions">
+          <!-- Opciones dinámicas -->
+        </div>
+        <div class="chatbot-input">
+          <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." />
+          <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
       </div>
     </div>
 

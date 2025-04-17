@@ -171,12 +171,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    /* Hidden by default in non-responsive mode */
-    display: none;
-}
-
-.carrito.active {
-    display: block; /* Show when active */
 }
 
 .carrito h2 {
@@ -366,28 +360,53 @@ body {
     margin-top: 15px;
 }
 
-/* Boleta Styles */
-.boleta-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1002; /* Higher than the cart */
-}
-
 .boleta {
     background-color: white;
     padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.boleta-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.boleta-items {
+    margin-bottom: 20px;
+}
+
+.boleta-total {
+    border-top: 2px solid #eee;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.btn-imprimir {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-imprimir:hover {
+    background-color: #218838;
+}
+
+.boleta-container {
+    background: white;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.boleta {
     max-width: 800px;
-    width: 90%;
-    position: relative; /* For positioning the close button */
+    margin: 0 auto;
 }
 
 .boleta-logo {
@@ -402,7 +421,6 @@ body {
 
 .boleta-info {
     margin: 15px 0;
-    text-align: left;
 }
 
 .boleta-detalle table {
@@ -418,21 +436,13 @@ body {
     text-align: left;
 }
 
-.boleta-total {
-    border-top: 2px solid #eee;
-    padding-top: 10px;
-    text-align: right;
-    font-weight: bold;
-}
-
 .boleta-footer {
     margin-top: 30px;
     text-align: center;
     color: #666;
 }
 
-.btn-imprimir,
-.btn-cerrar-boleta {
+.btn-imprimir {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -441,72 +451,15 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-.btn-imprimir:hover,
-.btn-cerrar-boleta:hover {
+.btn-imprimir:hover {
     background: #27ae60;
 }
 
-/* Close button style */
-.btn-cerrar-boleta {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    color: #e74c3c;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-}
-
 @media print {
-    .btn-imprimir,
-    .btn-cerrar-boleta {
+    .btn-imprimir {
         display: none;
-    }
-}
-
-/* Responsive adjustments for boleta */
-@media (max-width: 768px) {
-    .boleta {
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    .boleta-header {
-        margin-bottom: 20px;
-    }
-
-    .boleta-logo {
-        max-width: 120px;
-    }
-
-    .boleta-info {
-        font-size: 0.9em;
-    }
-
-    .boleta-detalle th,
-    .boleta-detalle td {
-        padding: 8px;
-        font-size: 0.9em;
-    }
-
-    .boleta-total {
-        font-size: 1em;
-    }
-
-    .boleta-footer {
-        font-size: 0.8em;
-    }
-
-    .btn-imprimir,
-    .btn-cerrar-boleta {
-        padding: 8px 16px;
-        font-size: 0.9em;
     }
 }
 
@@ -625,20 +578,7 @@ body {
 /* Non-Responsive Styles */
 @media (min-width: 769px) {
     .carrito-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-color: #3498db;
-        color: white;
-        font-size: 1.5em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        z-index: 1002;
+        display: none; /* Hide the toggle button when not in responsive mode */
     }
 }
 

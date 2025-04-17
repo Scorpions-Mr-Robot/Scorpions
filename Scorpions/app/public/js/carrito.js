@@ -342,21 +342,18 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Carrito inicializado'); // Debug
     actualizarCarrito();
 
-    // Add toggle button
-    const carritoToggle = document.createElement('div');
-    carritoToggle.className = 'carrito-toggle';
-    carritoToggle.innerHTML = '<i class="fas fa-shopping-cart"></i>';
-    document.body.appendChild(carritoToggle);
+    // Solo crea el botón si no existe
+    if (!document.querySelector('.carrito-toggle')) {
+        const carritoToggle = document.createElement('div');
+        carritoToggle.className = 'carrito-toggle';
+        carritoToggle.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+        document.body.appendChild(carritoToggle);
 
-    // Toggle function
-    carritoToggle.addEventListener('click', function() {
-        const carritoElement = document.getElementById('carrito-container');
-        carritoElement.classList.toggle('active');
-    });
-
-    // Add event listener to the toggle button
-    document.querySelector('.carrito-toggle').addEventListener('click', function() {
-        const carritoElement = document.getElementById('carrito-container');
-        carritoElement.classList.toggle('active');
-    });
+        carritoToggle.addEventListener('click', function() {
+            const carritoElement = document.getElementById('carrito-container');
+            if (carritoElement) {
+                carritoElement.classList.toggle('active');
+            }
+        });
+    }
 });
