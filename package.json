@@ -1,13 +1,13 @@
 {
   "name": "scorpions",
   "version": "1.0.0",
-  "main": "app/index.js",
+  "main": "Scorpions/app/index.js",
   "type": "commonjs",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
-    "start": "node app/index.js",
+    "start": "node Scorpions/app/index.js",
     "build": "npm install"
   },
   "dependencies": {
