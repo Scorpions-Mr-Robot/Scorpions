@@ -232,70 +232,56 @@ function procesarPagoExitoso() {
 }
 
 // Función para generar boleta
-async function generarBoleta() {
-    if (boletaMostrada) {
-        return; // Do not generate a new receipt if one is already displayed
-    }
+function generarBoleta() {
+  if (boletaMostrada) return;
 
-    boletaMostrada = true;
-    const fecha = new Date().toLocaleDateString();
-    const numeroBoleta = Math.floor(Math.random() * 1000000);
-    
-    const boletaHTML = `
-        <div class="boleta-container">
-            <div class="boleta">
-                <button onclick="cerrarBoleta()" class="btn-cerrar-boleta">
-                    <i class="fas fa-times"></i> Cerrar
-                </button>
-                <div class="boleta-header">
-                    <img src="/imagenes/logo_Sin_fondo.png" alt="Logo" class="boleta-logo">
-                    <h2>BOLETA DE VENTA</h2>
-                    <div class="boleta-info">
-                        <p>N°: ${numeroBoleta}</p>
-                        <p>Fecha: ${fecha}</p>
-                    </div>
-                </div>
-                
-                <div class="boleta-detalle">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Descripción</th>
-                                <th>Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${carrito.map(item => `
-                                <tr>
-                                    <td>${item.nombre}</td>
-                                    <td>$${item.precio.toFixed(2)}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>Total</td>
-                                <td>$${total.toFixed(2)}</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                
-                <div class="boleta-footer">
-                    <p>¡Gracias por su compra!</p>
-                    <p>Scorpions - Soluciones Informáticas</p>
-                </div>
-            </div>
-            <button onclick="imprimirBoleta()" class="btn-imprimir">
-                <i class="fas fa-print"></i> Imprimir Boleta
-            </button>
+  boletaMostrada = true;
+  const fecha = new Date().toLocaleDateString();
+  const numeroBoleta = Math.floor(Math.random() * 1000000);
+
+  const boletaHTML = `
+    <div class="boleta-container">
+      <div class="boleta">
+        <button onclick="cerrarBoleta()" class="btn-cerrar-boleta">&times;</button>
+        <div class="boleta-header">
+          <h2>BOLETA DE VENTA</h2>
+          <p>N°: ${numeroBoleta}</p>
+          <p>Fecha: ${fecha}</p>
         </div>
-    `;
+        <div class="boleta-detalle">
+          <table>
+            <thead>
+              <tr>
+                <th>Descripción</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${carrito.map(item => `
+                <tr>
+                  <td>${item.nombre}</td>
+                  <td>$${item.precio.toFixed(2)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total</td>
+                <td>$${total.toFixed(2)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="boleta-footer">
+          <p>¡Gracias por su compra!</p>
+        </div>
+      </div>
+    </div>
+  `;
 
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML = boletaHTML;
-    document.body.appendChild(modal);
+  const modal = document.createElement('div');
+  modal.innerHTML = boletaHTML;
+  document.body.appendChild(modal);
 }
 
 // Función para imprimir boleta

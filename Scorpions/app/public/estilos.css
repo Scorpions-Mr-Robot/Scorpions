@@ -652,6 +652,45 @@ body.dark-mode .footer {
   background-color: #2980b9;
 }
 
+/* Ajustes para el asistente en dispositivos móviles */
+@media (max-width: 768px) {
+  .chatbot-container {
+    width: 100%; /* Ocupa todo el ancho */
+    height: auto; /* Ajusta la altura automáticamente */
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .chatbot-container.open {
+    height: 400px; /* Altura fija para el asistente expandido */
+  }
+
+  .chatbot-header {
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  .chatbot-messages {
+    height: 250px; /* Espacio suficiente para los mensajes */
+    padding: 10px;
+  }
+
+  .chatbot-input {
+    padding: 10px;
+  }
+
+  .chatbot-input input {
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  .chatbot-input button {
+    font-size: 1em;
+    padding: 10px 15px;
+  }
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .chatbot-container {
