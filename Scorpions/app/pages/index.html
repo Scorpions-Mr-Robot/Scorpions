@@ -107,6 +107,83 @@
         color: #2c3e50;
         align-self: flex-start;
       }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .chatbot-container {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          bottom: 20px;
+          right: 20px;
+          overflow: hidden;
+          transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+        }
+
+        .chatbot-container.open {
+          width: 300px;
+          height: 400px;
+          border-radius: 12px;
+        }
+
+        .chatbot-header {
+          border-radius: 50%;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .chatbot-header span {
+          display: none;
+        }
+
+        .chatbot-messages {
+          display: none;
+          padding: 10px;
+        }
+
+        .chatbot-input {
+          display: none;
+          padding: 10px;
+        }
+
+        .chatbot-container.open .chatbot-header {
+          border-radius: 0;
+        }
+
+        .chatbot-container.open .chatbot-header span {
+          display: inline;
+        }
+
+        .chatbot-container.open .chatbot-messages {
+          display: flex;
+        }
+
+        .chatbot-container.open .chatbot-input {
+          display: flex;
+        }
+      }
+
+      .chatbot-options {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .chatbot-option {
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 8px 12px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .chatbot-option:hover {
+        background-color: #e0e0e0;
+      }
     </style>
   </head>
 
@@ -249,6 +326,13 @@
       <div class="chatbot-messages">
         <!-- Chat messages will be displayed here -->
       </div>
+      <div class="chatbot-options">
+        <div class="chatbot-option" onclick="sendMessage('¿Qué servicios ofrecen?')">¿Qué servicios ofrecen?</div>
+        <div class="chatbot-option" onclick="sendMessage('¿Cuáles son sus precios?')">¿Cuáles son sus precios?</div>
+        <div class="chatbot-option" onclick="sendMessage('¿Cómo puedo contactarlos?')">¿Cómo puedo contactarlos?</div>
+        <div class="chatbot-option" onclick="sendMessage('¿Cuál es su horario de atención?')">¿Cuál es su horario de atención?</div>
+        <div class="chatbot-option" onclick="sendMessage('¿Quiénes son?')">¿Quiénes son?</div>
+      </div>
       <div class="chatbot-input">
         <input type="text" placeholder="Escribe tu pregunta..." />
         <button onclick="sendMessage()">Enviar</button>
@@ -275,17 +359,36 @@
       const chatbotInput = document.querySelector('.chatbot-input input');
       const chatbotContainer = document.querySelector('.chatbot-container');
       const chatbotHeader = document.querySelector('.chatbot-header');
+      const chatbotOptions = document.querySelector('.chatbot-options');
       let isChatbotOpen = false;
 
       function toggleChatbot() {
         isChatbotOpen = !isChatbotOpen;
         chatbotMessages.style.display = isChatbotOpen ? 'flex' : 'none';
         chatbotInput.parentNode.style.display = isChatbotOpen ? 'flex' : 'none';
+        chatbotOptions.style.display = isChatbotOpen ? 'flex' : 'none';
         chatbotHeader.classList.toggle('closed');
+
+        // Add or remove the 'open' class based on chatbot state
+        if (chatbotContainer.classList) {
+          chatbotContainer.classList.toggle('open');
+        } else {
+          // For older browsers
+          var classes = chatbotContainer.className.split(' ');
+          var i = classes.indexOf('open');
+
+          if (i >= 0)
+            classes.splice(i, 1);
+          else
+            classes.push('open');
+          chatbotContainer.className = classes.join(' ');
+        }
       }
 
-      function sendMessage() {
-        const message = chatbotInput.value;
+      function sendMessage(message) {
+        if (!message) {
+          message = chatbotInput.value;
+        }
         if (message) {
           displayMessage(message, 'user');
           getBotResponse(message);
@@ -303,7 +406,7 @@
 
       function getBotResponse(message) {
         message = message.toLowerCase();
-        let response = "Agradezco tu mensaje. Actualmente estoy aprendiendo, pero puedo ayudarte con algunas preguntas comunes.";
+        let response = "¡Hola! Soy tu asistente virtual de Scorpions. ¿En qué puedo ayudarte hoy?";
 
         if (message.includes("servicios")) {
           response = "Ofrecemos una amplia gama de servicios, incluyendo ciberseguridad, desarrollo de software a medida y soluciones integrales en la nube. ¿En cuál de estos servicios estás más interesado?";
@@ -327,6 +430,7 @@
       // Hide messages and input initially
       chatbotMessages.style.display = 'none';
       chatbotInput.parentNode.style.display = 'none';
+      chatbotOptions.style.display = 'none';
     </script>
   </body>
 </html>
