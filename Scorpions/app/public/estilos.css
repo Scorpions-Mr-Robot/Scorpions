@@ -77,6 +77,10 @@ body.dark-mode {
     font-size: 1.5em;
     color: white;
     cursor: pointer;
+    position: absolute; /* Position the hamburger button */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 11; /* Ensure it's above the menu */
 }
 
 #menu {
@@ -99,18 +103,27 @@ body.dark-mode {
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #003566;
+        background-color: rgba(0, 53, 102, 0.9); /* Darker background for the mobile menu */
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 10;
+        padding: 10px; /* Add padding to the mobile menu */
+        box-sizing: border-box; /* Include padding in the width */
     }
 
     .navbar ul {
         flex-direction: column;
         text-align: center;
+        padding: 0; /* Remove padding from the list */
     }
 
     .navbar li {
         margin: 10px 0;
+    }
+
+    .navbar a {
+        display: block; /* Make links fill the entire width */
+        width: 100%;
+        box-sizing: border-box; /* Include padding in the width */
     }
 
     #menu:checked ~ .navbar {
@@ -122,8 +135,9 @@ body.dark-mode {
     }
 
     .theme-toggle {
-        position: static;
-        margin-left: auto;
+        position: absolute;
+        top: 20px;
+        right: 60px;
     }
 
     .header-content {
@@ -422,6 +436,10 @@ body.dark-mode .header {
     background: linear-gradient(135deg, #333, #555);
 }
 
+body.dark-mode .navbar {
+    background-color: rgba(51, 51, 51, 0.9); /* Darker background for the mobile menu in dark mode */
+}
+
 body.dark-mode .services,
 body.dark-mode .about-us {
     background-color: #333;
@@ -446,7 +464,7 @@ body.dark-mode .footer {
     transition: color 0.3s ease;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 60px; /* Adjust to make space for the hamburger button */
 }
 
 .theme-toggle:hover {
